@@ -1,5 +1,5 @@
 # Bienvenido a "pruebas"
-Este es mi primer repositorio en GitHub
+Este es mi primer repositorio de GitHub
 , encontrarás ejemplos de:
 * Python
 * JavaScript
