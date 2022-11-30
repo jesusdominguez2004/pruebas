@@ -1,8 +1,12 @@
-# pruebas
-Bienvenido a mi repositorio de pruebas
+# Bienvenido a "pruebas"
+Este es mi primer repositorio en GitHub
+, encontrarás ejemplos de:
+* Python
+* JavaScript
+* C++
+* Etc.
 
-Encontrarás ejemplos de:
-1. Python
-2. C++
-3. JavaScript
-4. Etc.
+También encontrarás ejercicios hecho en la universidad:
+* Algoritmos y programación
+* Algoritmos 1
+* Algoritmos 2
