@@ -1,0 +1,1 @@
+{"0": {"Referencia": "0", "Precio": 0.0, "Marca": "0", "Color": "0"}, "1": {"Referencia": "1", "Precio": 4.0, "Marca": "1", "Color": "1"}}

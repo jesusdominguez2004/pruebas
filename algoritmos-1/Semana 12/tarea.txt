@@ -1,0 +1,6 @@
+Escribir un programa que genero 100 numeros aleatorios, 
+los numeros pares deben guardarse en un archivo llamados pares.txt 
+y los impares en uno llamado impares.txt. 
+
+Despues de haber cumplido el proceso anterior debera 
+leer los archivos para calcular, la suma de los pares y los impares
