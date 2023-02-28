@@ -1,0 +1,181 @@
+Comandos Git Bash:
+
+git config --global user.name "Nombre Nuestro"
+git config --global user.email correo@dominio
+git config --global core.editor "editor_predeterminado --wait"
+git config --global -e MUESTRA CONFIGURACIÓN EN EDITOR PERSONALIZADO
+git config --global -h MUESTRA TODOS LOS COMANDOS DE CONFIG
+git config --global core.autocrlf true WINDOWS
+git config --global core.autocrlf input LINUX/macOS
+
+ls MOSTRAR LISTA ARCHIVOS Y CARPETAS EN UN DIRECTORIO
+pwd MOSTRAR DIRECTORIO ACTUAL
+cd directorio_carpeta MOVERNOS EN CARPETAS - TAB AUTOCOMPLETAR NOMBRE O MOSTRAR OPCIONES POSIBLES
+cd .. MOVERNOS UN DIRECTORIO ATRÁS
+mkdir nombre_directorio CREAR CARPETA O DIRECTORIO
+git init INICIALIZAR REPOSITORIO GIT - CREA CARPTEA .git OCULTA - NO SE COMPARTE CON OTROS DESARROLLADORES
+ls -a MOSTRAR DIRECTORIOS Y ARCHIVOS OCULTOS
+cd .git MOVERNOS A DIRECTORIO REPOSITORIO GIT
+cd .git ls -a MUESTRA EL DESTALLE DE IMPLEMENTACIÓN
+
+Flujo de trabajo con GIT:
+Computador/Changes (git add, archivos para stage)
+Stage (git commit, archivos para commit)
+Commit (git push, archivos para server)
+Server
+
+Etapa de Stage:
+editor_predeterminado . MODIFICAR NUESTRO PROYECTO CON EDITOR PREDETERMINADO
+git status MOSTRAR ESTADO ACTUAL REPOSITORIO
+
+Untracked files significa archivos no seguidos por git
+por defecto, git no sigue todos lo archivos creados,
+git add para añadir esos archivos.
+
+git add archivo1.txt AÑADE SOLO ESTE ARCHIVO ESPECÍFICO A STAGE
+git add archivo1.txt archivo2.txt ... AÑADE VARIOS ARCHIVOS ESPECÍFICOS A STAGE
+git add .txt AÑADE TODOS LOS TXT REPOSITORIO A STAGE
+git add . AÑADIR TODOS LOS ARCHIVOS DE 
+Untracked files A STAGE MALA PRÁCTICA
+
+Changes to be committed lista de archivos añadidos
+a la estapa de Stage
+
+git rm --cached <file>... para quitar de Stage un archivo
+
+Changes not staged for commit lista de archivos ya subidos a Stage, pero que fueron modificados, se deben añadir otra vez a Stage para actualizar los cambios.
+
+Estapa de Commint (Comprometer):
+git commit -m "Mensaje con sentido" COMPROMETER TODOS LOS ARCHIVOS EN ETAPA STAGE - FORMA 1 DE COMPROMETER
+git commit ABRE EDITOR PREDETERMINADO - NOS MUESTRA LOS ARCHIVOS MODIFICADOS - EN LA PRIMERA LÍNEA COLOCAMOS EL MENSAJE CON SENTIDO - CERRAMOS ESE ARCHIVO ABIERTO PARA CONFIMAR - FORMA 2 DE COMPROMETER
+
+Eliminar archivos:
+rm <file>... ELIMINAR ARCHIVO ESPECÍFICO - EN CHANGES
+git add <file>... MOVER ARCHIVO ELIMINADO ETAPA STAGE
+git commit -m "Mensaje con sentido" MOVER ARCHIVO ELIMINADO ETAPA COMMIT COMPROMETEDORA
+
+git rm <file>... ELIMINAR ARCHIVO ESPECÍFICO - EN STAGE DIRECTAMENTE
+git restore --staged <file>... PASAR DE STAGE A CHANGES
+git restore <file>... ELIMINAR LOS CAMBIOS - CHANGES A COMPUTADORA
+
+Mover o renombrar archivos:
+mv nombre_viejo.extensión nombre_nuevo.extensión RENOMBRAR UN ARCHIVO - ETAPA CHANGES
+git add nombre_viejo.extensión nombre_nuevo.extensión CONFIRMAR RENOMBRAR - ETAPA STAGE
+git commit -m "Mensaje con sentido" COMPROMETER RENOMBRAR - ETAPA COMMIT
+
+git mv nombre_viejo.extensión nombre_nuevo.extensión RENOMBRAR UN ARCHIVO - MOVER A STAGE DIRECTAMENTE
+Luego el commit
+
+Ignorar archivos y directorios:
+Crear archivos en code .env para variables de entorno
+en este colocamos por ejemplo, contraseñas y usuarios para
+conexiones a bases de datos. Pero queremos que sean privados,
+que no estén en commit, es decir, comprometidas.
+
+Luego archivo .gitignore, donde diremos los archivos o las rutas
+privadas que no queremos que vayan a nuestro repositorio, es decir, que no estén comprometidas:
+
+	.env PARA IGONORAR EL ARCHIVO DE VARIABLES DE ENTORNO
+	.carpeta/ PARA IGONORAR UNA RUTA
+
+De esta forma solo saldrá en CHANGES el .gitignore:
+git add .gitignore MOVER A STAGE
+git commit -m "Agregando archivo .gitignore" COMPROMETER - MOVER A STAGE
+
+Un mejor git status:
+Si ya sabemos lo que hicimos podemos usar
+git status -s VER ESTADO RESPOSITORIO FORMA 2
+ M (Rojo derecha) -> Modificación EN CHANGES
+?? (Rojo) -> Un archivo nuevo sin seguimiento EN CHANGES
+
+M  (Verde izquierda) -> Modificación en STAGE
+A  (Verde izquierda) -> Archivo nuevo EN STAGE
+Todo lo verde está listo para comprometer COMMIT
+
+Visualización de cambios:
+Luego de hacer una modificación de un archivo,
+usar comando git diff
+git diff MOSTRAR EN CONSOLA GIT BASH VISUALMENTE LOS CAMBIOS DE LOS ARCHIVOS MODIFICADOS - EN ESTAPA CHANGES
+Un salto de línea es para git diff una modificación OJO
+q SALIR DE PANTALLA git diff
+git diff --staged MOSTRAR EN CONSOLA GIT BASH VISUALMENTE LOS CAMBIOS DE LOS ARCHIVOS MODIFICADOS - EN ESTAPA STAGE
+
+Viendo el historial:
+git log MOSTRAR HISTORIAL DE COMMIT CON SU AUTOR, EMAIL, FECHA Y MENSAJE OPCIONAL - DEL MÁS RECIENTE AL MÁS VIEJO - HASH IDENTIFICADOR LARGO
+git log --oneline - MOSTRAR HISTORIAL DE COMMIT SOLO CON SU MENSAJE OPCIONAL - DEL MÁS RECIENTE AL MÁS VIEJO - HASH IDENTIFICADOR CORTO
+
+Ramas en git o branches:
+Hasta hora se ha trabajado lineal
+o = commit
+o-o-o-o-o RAMA PRINCIPAL
+
+Cuando hay varios desarrolladores queremos hacer una BIFURCACIÓN
+Tener cambios en nuestros equipos para luego volver a la rama principal, este proceso de llama branch, la solicitud para volver a la rama principal (main) se llama merge.
+o = commit
+
+    o-o-o BRANCH  
+   /     \ MERGE
+o-o-o-o-o-o-o RAMA PRINCIPAL (MAIN)
+
+git restore --staged <file>... RESTAURAR MODIFICACIÓN DE STAGE A CHANGES
+git restore <file>... DESCARTAR CAMBIO DE CHANGES
+git branch OBTENER EN QUÉ RAMA ESTAMOS
+main - master es la rama principal
+git checkout -b nombre_rama CREAR UNA RAMA NUEVA
+master
+* ramab 
+El asterísco indica dónde estámos
+Y nos dice cuántas ramas hay
+cat <file>... MOSTRAR CONTENIDO ARCHIVO
+git checkout nombre_rama CAMBIAR DE RAMA
+El contenido cambia dependiendo de la rama que estemos
+Podemos tener varias versiones de código que están siendo trabajdas por desarrolladores.
+git merge nombre_rama_externa TRAER CAMBIOS DE UNA RAMA B A LA RAMA ACTUAL QUE ESTÉMOS
+
+Conectar con GitHub:
+git remote add origin https://github.com/jesusdominguez2004/NOMBRE_REPOSITORIO_WEB.git
+git push -u origin nombre_rama_principal_git_bash CREAR RAMA PRINCIPAL EN GITHUB
+git push SUBIR TODOS LOS ARCHIVOS A GITHUB
+git checkout -b nombre_rama_nueva CREAR RAMA GIT BASH
+git push -u origin nombre_rama_nueva CREAR RAMA EN GITHUB
+
+
+- - - - - - -
+
+Linus Torvalds: Creador de Git
+
+git branch -m nombre_rama_nueva
+
+git status (En qué estado estoy)
+
+IMPORTANTE: Estados (PC -> Stage -> Commint -> Servidor)
+
+git add <name> PC -> Stage
+git commit -m "Nombre o mensaje del commit"
+
+git log (ver commits hechos por todos)
+
+git branch nombre_rama_externa
+git branch (ver ramas, y dónde estámos)
+
+git checkout nombre_rama_externa (cambiar a otra rama)
+git branch
+
+Repaso:
+
+1. Crear carpeta repositorio
+2. Crear un archivo (txt, html, etc)
+3. Entro a la carpeta (términal, directorio)
+4. git init
+5. configuro git config+
+    git config --global user.name "Nombre Nuestro"
+    git config --global user.email correo@dominio
+6. git add nombre_archivo (PASAR DE PC a STAGE)
+7. git commit -m "Mensaje de tu Commint" (PASAR DE STAGE A COMMIT)
+8. git branch nombre_rama_externa_nueva
+
+
+git merge nombre_rama_externa (pasa commit de rama_externa a main) HACER EN MAIN
+    o-o-o BRANCH  
+   /     \ MERGE
+o-o-o-o-o-o-o RAMA PRINCIPAL (MAIN)

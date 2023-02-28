@@ -1,0 +1,72 @@
+Buenas prácticas de Desarrollo de Software
+Semana 1
+
+Docente: Roberto Morales
+
+- Git / GitHub
+- AWS (Amazon Web Services) -> Tarjeta de crédito
+- Testing
+
+
+Walter Isascon -> Biografías y más...
+    Los Innovadores
+    Albert Einsten
+
+
+1. Git / GitHub
+    Ramas
+    Request
+    Commit
+    Merge
+
+2. AWS
+    TS2
+    S3
+    AC
+    FDS
+    Dominios
+    DNS
+
+3. Buenas prácticas de Desarrollo
+    Testing
+    Documentación
+    JavaScript
+        React (Webkit, Next.js)
+        Node
+
+4. Reglas de las clases
+    Enemigo de las copias
+    6:30 PM -> 6:45 PM HASTA 9:00 PM
+    Asistencias puntuales
+    Entregas a tiempo
+    Fecha de modificación GitHub (OJO)
+    Rúbricas
+
+5. Items
+    Corte 1: Exámenes y talleres
+    Corte 2: Exámenes y talleres
+    Corte 3: Proyecto Final
+
+
+- - - - - - Git - - - - - -
+
+Es un sistema o lenguaje de control de versiones
+Commit
+Ramas o Branches
+Merge
+Pull
+Push
+https://git-scm.com/
+
+- - - - - - GitHub - - - - - -
+
+Es el lugar donde guardamos repositorios
+https://github.com/
+
+- - - - - - AWS (Amazon Web Services)  - - - - - -
+
+PDS -> Plan de Desarrollo (Gobierno / País)
+TIC no tiene prioridad en el PDS Colombia (2022-2026)
+Inglés
+    TOFL > 80
+    GRT > 120
