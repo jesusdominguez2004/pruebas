@@ -183,4 +183,10 @@ o-o-o-o-o-o-o RAMA PRINCIPAL (MAIN)
 CUANDO MODIFIQUES RAMA SECUNDARIA:
 git checkout main (pasar a la main local)
 git merge develop (en el main local)
-git push origin develop
+git push origin develop (de aquí a la nube SOLO develop)
+git push origin main (de aquí a la nube SOLO main)
+
+- - - -
+git pull
+git clone URL_REPOSITORIO (clonar repositorio)
+    New fork
