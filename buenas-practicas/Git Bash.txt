@@ -179,3 +179,6 @@ git merge nombre_rama_externa (pasa commit de rama_externa a main) HACER EN MAIN
     o-o-o BRANCH  
    /     \ MERGE
 o-o-o-o-o-o-o RAMA PRINCIPAL (MAIN)
+
+git checkout main (pasar a la main local)
+git merge develop (en el main local)
