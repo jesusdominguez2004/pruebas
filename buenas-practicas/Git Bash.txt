@@ -189,4 +189,6 @@ git push origin main (de aquí a la nube SOLO main)
 - - - -
 git pull
 git clone URL_REPOSITORIO (clonar repositorio)
-    New fork
+    New fork, crea un copia del repositorio clonado
+    en tu repositorio en GitHub para que puedas 
+    tener el tuyo propio.
