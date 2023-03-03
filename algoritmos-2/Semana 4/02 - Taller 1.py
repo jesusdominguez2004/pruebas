@@ -149,25 +149,37 @@ class ListaEnlazadaSimple:
         return nodoActual.dato
 
     # 6. Eliminar en posición dada   
-    def eliminarEnPosicion(self, posicion) -> (int | float | str | None):
-        if self.estaVacia() or posicion < 0:
+    def eliminarEnPosicion(self, posicion) -> (bool | None):
+        if self.estaVacia() or posicion < 0 or posicion >= self.contarNodos():
             return None
 
         if posicion == 0:
             self.eliminarAlInicio()
             return True
         
+        nodoPrevio = None
+        nodoActual = self.nodoInicial
+        cont = 0
+        while nodoActual.siguiente != None and cont < posicion:
+            nodoPrevio = nodoActual
+            nodoActual = nodoActual.siguiente
+            cont = cont + 1
+        
+        nodoPrevio.siguiente = nodoActual.siguiente
+        return True
+    
+    # Extra: Cantidad de nodos
+    def contarNodos(self) -> (int | None):
+        if self.estaVacia():
+            return None
+        
         cont = 0
         nodoActual = self.nodoInicial
-        while nodoActual.siguiente != None:
+        while nodoActual != None:
             nodoActual = nodoActual.siguiente
             cont = cont + 1
 
-        if posicion > cont:
-            return None
-        
-        return True
-
+        return cont
 
 
 # 1. Adicionar al final
@@ -175,11 +187,11 @@ miLista = ListaEnlazadaSimple()
 miLista.adicionarAlFinal(10)
 miLista.adicionarAlFinal(20)
 miLista.adicionarAlFinal(30)
-print(f"-> Lista: {miLista}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
 
 # 2. Eliminar al final
 miLista.eliminarAlFinal()
-print(f"-> Último nodo eliminado: {miLista}")
+print(f"-> Último nodo eliminado: {miLista} ({miLista.contarNodos()} nodos)")
 
 # 3. Repeticiones de un dato
 print(f"Repeticiones de 10: {miLista.repeticionesDato(10)}")
@@ -188,7 +200,7 @@ print(f"Repeticiones de 30: {miLista.repeticionesDato(30)}")
 
 # 4. Elemento en posición dada
 miLista.adicionarAlFinal(30)
-print(f"-> Lista: {miLista}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
 print(f"Elemento en la posición {-3}: {miLista.elementoEnPosicion(-3)}")
 print(f"Elemento en la posición {-2}: {miLista.elementoEnPosicion(-2)}")
 print(f"Elemento en la posición {-1}: {miLista.elementoEnPosicion(-1)}")
@@ -200,9 +212,18 @@ print(f"Elemento en la posición {3}: {miLista.elementoEnPosicion(3)}")
 # 5. Último elemento
 miLista.adicionarAlFinal(40)
 miLista.adicionarAlFinal(50)
-print(f"-> Lista: {miLista}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
 print(f"Último elemento: {miLista.ultimoElemento()}")
 
 # 6. Eliminar en posición dada
 print(f"Eliminar elemento en posición {0}: {miLista.eliminarEnPosicion(0)}")
-print(f"-> Lista: {miLista}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
+
+print(f"Eliminar elemento en posición {1}: {miLista.eliminarEnPosicion(1)}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
+
+print(f"Eliminar elemento en posición {2}: {miLista.eliminarEnPosicion(2)}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
+
+print(f"Eliminar elemento en posición {3}: {miLista.eliminarEnPosicion(3)}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
