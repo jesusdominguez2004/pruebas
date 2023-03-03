@@ -262,19 +262,54 @@ class ListaEnlazadaSimple:
     
     # 5. Mover elemento de posición inicial a posicón final
     def moverElemento(self, posInicial, posFinal):
-        if self.estaVacia():
-            return None
+        # if self.estaVacia():
+        #     return None
     
-        if posInicial < 0 or posFinal < 0:
-            return None
+        # if posInicial < 0 or posFinal < 0:
+        #     return None
         
-        if posInicial >= self.contarNodos() or posFinal >= self.contarNodos():
-            return None
+        # if posInicial >= self.contarNodos() or posFinal >= self.contarNodos():
+        #     return None
         
-        if posInicial == posFinal:
-            return None
+        # if posInicial == posFinal:
+        #     return None
         
-        pass
+        # if posInicial < posFinal:
+        #     return None
+        
+        # # Si nodoInical == 0
+        # if posInicial == 0:
+        #     nodoActual = self.no
+        #     self.nodoInicial = self.nodoInicial.siguiente
+
+        # posInicial
+        nodoPrevio = None
+        nodoActual = self.nodoInicial
+        cont = 0
+        while nodoActual.siguiente != None and cont < posInicial:
+            nodoPrevio = nodoActual
+            nodoActual = nodoActual.siguiente
+            cont = cont + 1
+
+        # Buscar nodoFinal
+        nodoPrevio2 = None
+        nodoActual2 = self.nodoInicial
+        cont = 0
+        while nodoActual.siguiente != None and cont < posFinal:
+            nodoPrevio2 = nodoActual2
+            nodoActual2 = nodoActual2.siguiente
+            cont = cont + 1
+        
+        # El anterios nodoInicial = siguiente nodoInicial
+        nodoPrevio.siguiente = nodoActual.siguiente
+
+        # El siguiente nodoFinal = nodoActual
+        nodoActual.siguiente = nodoActual2.siguiente
+        nodoActual2.siguiente = nodoActual
+
+        return [nodoActual.dato, nodoActual2.dato]
+    
+
 
 
 # Clase comparadora de listas simples
@@ -356,11 +391,14 @@ print(f"¿Tienen mismo contenido?: {comparacion1.compararContenido()}")
 print(f"¿Tienen mismo tamaño Y contenido?: {comparacion1.compararContenido()}")
 
 # 5. Mover elemento de posición inicial a posicón final
-# miLista.eliminarAlFinal()
-# miLista.eliminarAlFinal()
-# miLista.eliminarAlFinal()
-# miLista.eliminarAlFinal()
+miLista.eliminarAlFinal()
+miLista.eliminarAlFinal()
+miLista.eliminarAlFinal()
+miLista.eliminarAlFinal()
+miLista.adicionarAlFinal(50)
+miLista.adicionarAlFinal(60)
+miLista.adicionarAlFinal(70)
 
-# print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
-# print(f"Mover posición 0 a 1: {miLista.moverElemento(0, 1)}")
-# print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
+print(f"Mover posición 1 a 2: {miLista.moverElemento(1, 2)}")
+print(f"-> Lista: {miLista} ({miLista.contarNodos()} nodos)")
