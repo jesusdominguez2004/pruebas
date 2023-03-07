@@ -1,0 +1,122 @@
+Notas semana 5
+
+Norte Virginia
+EC2 -> Elastic C 2 Servidor
+Panel de Amazon
+
+Amazon Free Trier
+    RAM
+    CPU
+    OS
+    Storage
+
+    C de condiciones
+    750 máximo
+    22 micro
+    Linux
+    Storage 10 GB
+    Esto es para que no te cobre
+
+Amazon cobra por todo los componentes hasta red
+Cobra por hora.
+    24 horas prendida
+    24 * 31 = 744 horas
+    750 amazon - 744 = 6 hora
+    puedes tener este plan gratis todo el año
+    pero si activas dos máquinas entonces te cobra
+    EC2 te lo da por 12 meses gratis
+
+Ubuntu
+20.04 LTS Free tier eligible
+64 bit ?
+t2 micro
+Buenas prácticas lunes 2023
+
+No tener Usuario y Contraseña (del Servidor)
+Mejor una llave ssh .pem
+solo puedes descargarla una vez
+si la pierdes perderás el Servidor
+para siempre
+key pair
+
+llave_bp_lunes_2023
+
+Storage 1 x 10 GB gp2
+Gratis hasta 30GB
+
+Linux instala OS en puntos del disco
+Windwos instala OS en una parte
+
+Lanzar instancia -> Crear Servidor
+
+status check -> 2/2
+primer servidor virtualizado Amazon
+
+Conectar al servidor
+SSH client
+Usar Git Bash
+"Open Git Bash here" en el archivo de la clave Shh .pem
+
+Pegamos shh en consola
+
+¿Permiso 400? Buena práctica
+
+
+
+...
+htop (salir con ctrl c) -> ver procesor del servidor
+
+Acceder desde el navegadora
+Colocar IP pública en navegador
+
+Servidor (tiene un hueco SSH)
+Entre esa conexión hay un muro
+Un Firewall
+Security Greop
+SSH -> puerto 22
+
+Si ingresas ip del servidor al navegador
+no te dejará ese Firewall
+
+http -> protocolo para hacer peticiones
+
+para poder pasar necesitamos un servicio web
+Apache o ngnx.
+
+Instalemos el Apache en el servidor
+    comandos para instalar paquetes
+    en el GitBash + Shh
+
+para hacerlo seguro https://ip_servidor
+
+decir al Firewall que habilite el https
+Anywhere IPv4
+Https puede estar habilidato a todos
+pero el SSH NO!
+
+Hackers:
+    si shh es público
+    si alguien tiene la llave
+    si está abierto al mundo
+    todo los puertos abiertos
+
+Cómo evitar: 
+    solo la llave
+    el puerto shh cerrado
+    solo entrar admin con ip personal
+
+desarrollar como si nos fueran a hackear
+todo el tiempo
+
+IPv4
+
+No usar IPv4
+dns
+de ip a -> a un nombre común
+
+mejor una IP fija
+cuesta
+who.ip
+
+ip elasticas
+terminar instancias
