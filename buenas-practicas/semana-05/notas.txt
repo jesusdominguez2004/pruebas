@@ -11,7 +11,7 @@ Amazon Free Trier
     Storage
 
     C de condiciones
-    750 máximo
+    750 horas máximo
     22 micro
     Linux
     Storage 10 GB

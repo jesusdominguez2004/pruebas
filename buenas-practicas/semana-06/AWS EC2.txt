@@ -1,0 +1,69 @@
+- - - - Pasos EC2 AWS - - - -
+
+Paso 1: Escoger ubicación servidor "Norte de Virginia"
+Paso 2: En el buscador de la consola AWS buscar "EC2"
+Paso 3: Ir a Intancias
+Paso 4: Click en botón "Lanzar istancias"
+Paso 5: Configurar nuesta intancia de EC2
+
+free tier significa "Capa gratuita"
+
+Nombre: Buenas prácticas 2023
+
+Sistema Operativo: Ubuntu (free tier)
+
+Amazon Machine Image (AMI): Ubuntu Server 20.04 LTS (HVM), SSD Volume Type(free tier) 64 bits
+
+Tipo instancia: t2.micro (free tier)
+
+Par de claves: Crear una clave, sin espacios ni tildes, por ejemplo "buenas_practicas_llave_2023". RSA y .pem
+
+Configuar almacenamiento: 1 x 10 GiB gp2 (10 GB) (Máximo gratis 30 GB)
+
+Public IPv4 address -> Es la IP pública para el mundo
+Private IPv4 addresses -> IP interna de Amazon
+
+Para este momento tenemos una "mala práctica" en seguridad
+
+PASO 6: Click derecho en el servidor EC2, seleccionar "Conectar"
+PASO 7: Escoger opción "SSH Client"
+PASO 8: Click derecho carpeta donde esté la llave .pem "Abrir Git Bash Here"
+
+PASO 9: Ingresar comando chmod 400 nombre_llave.pem
+PASO 10: Ingresar comando ssh -i "nombre_llave.pem" ubuntu@ec2-numeroPersonal.compute-1.amazonaws.com para estar dentro del servidor OJO
+
+Estos dos comandos te apareceran en la ventana SHH Client de AWS
+
+PASO 11: Ingresar comando htop dentro del servidor, para ver datos del servidor, te sales con ctrl + c
+
+PASO 12: Acceder a la IP desde el navegador
+
+No podrá, se necesita instalar un "mediador"
+
+PASO 13: Ingresar estos comandos en ORDEN para instalar apache en el servidor EC2
+
+sudo apt update
+sudo apt install apache2
+
+PASO 15: Ingresar a EC2 -> Grupos de seguridad en la consola o página de AWS
+
+PASO 16: Click en "Editar reglas de entrada"
+PASO 17: Agregar regla -> HTTP -> AnywhereIPv4 -> Guardar
+PASO 18: En el navegador ingresar http://IP_EC2
+PASO 19: Editar reglas de entrada, SSH cambiar Anywhere a MyIp. De esta forma solo tu IP personal + Llave.pem pueden acceder a EC2.
+
+Click derecho EC2 -> 
+	top Instance/Detener Instancia para apagar EC2
+	start Instance/Comenzar Instancia para encender EC2
+	terminate Instance/Terminar instancia PARA BORRAR TODO OJO NO HACER NUNCA HASTA LOS 12 MESES o Final 3er orte
+
+Cada vez que predes y apagas EC2 la Public IPv4 adress cambia.
+
+https://who.is página para ver dominios o IP disponibles
+
+Amazon tiene una parte de Ip elástica, te da un IP que no cambia. Pero te cobra si no la utilizas o si la EC2 está apagada, etc.
+	
+	O la dejas prendida siempre
+	O no tienes una IP elástica
+
+12/03/2023 6:11 PM EC2 Ip: 34.207.154.19
