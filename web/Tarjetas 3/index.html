@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Encabezado: conexiones, codificación, ajustes y título -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título, hoja de estilo CSS y Shortcut icon -->
+    <title>Tema oscuro | Diseño web</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="icon" href="img/sombra.png">
+    <!-- íconos web -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<!-- Contenido -->
+<body>
+    <section class="sección">
+        <div class="card">
+            <div class="toggle"></div>
+            <div class="content">
+                <!-- Foto de perfíl -->
+                <div class="img-text">
+                    <img src="img/mujer feliz campo.jpg" class="img-bx">
+                <!-- Nombre y ocupación -->
+                <h3>Jesús Alberto<br><span>Desarrollador web</span></h3>
+                </div>
+                <!-- íconos como enlaces -->
+                <ul class="contenedor-iconos">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Javascript -->
+    <script>
+        // Dos constantes, en el evento click del ícono, se agregara una clase al section
+        // y al dispararse el evento otra vez volverá a su clase normal
+        const sección = document.querySelector('.sección');
+        const toggle = document.querySelector('.toggle');
+
+        toggle.onclick = function() {
+            sección.classList.toggle('dark')
+        }
+    </script>
+</body>
+</html>

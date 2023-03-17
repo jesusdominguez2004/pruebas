@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Encabezado: ajustes, codificación, conexiones, título y más -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título y hoja CSS -->
+    <title>Operaciones básicas | JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <!-- Conexión íconos 4.7 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<!-- Contenido página -->
+<body>
+    
+    <div class="contenedor">
+        <!-- Ver info -->
+        <div class="info" id="openModal" title="Ver info"><i class="fa fa fa-info-circle" aria-hidden="true"></i></div>
+        <!-- Mensaje -->
+        <div class="text-box">
+            <h2>Operaciones básicas matemáticas JavaScript</h2>
+            <p>
+                Este es un aplicactivo web, que podrá resolver 
+                las cuatro operaciones básicas de la aritmética 
+                (Suma, resta, multiplicacíon y división).
+            </p>
+        </div>
+        <!-- Panel -->
+        <div class="box">
+            <input type="number" id="num1" title="Primer número">
+            <span id="iconOperacion">+</span>
+            <input type="number" id="num2" title="Segundo número">
+            <span>=</span>
+            <input type="number" id="resultado" readonly title="Resultado">
+        </div>
+        <!-- Seleccionar operación -->
+        <div class="select-box">
+            <select id="operacion" title="Escoger operación matemática">
+                <option value="sumar">Sumar</option>
+                <option value="restar">Restar</option>
+                <option value="multiplicar">Multiplicar</option>
+                <option value="dividir">Dividir</option>
+            </select>
+            <button id="btnCalcular" title="Botón calcular">Calcular</button>
+        </div>
+    </div>
+
+    <!-- Modal 'info' -->
+    <div id="modalBox">
+        <div id="modal">
+            <div id="closeModal"><i class="fa fa-times-circle"></i></div>
+            <h3>Cómo funciona <i class="fa fa-question-circle"></i></h3>
+            <p>
+                Debes ingresar un número en los dos primeros inputs (num1 y num2), 
+                luego escoger la operación matemática, y darle al botón calcular
+            </p>
+            <p class="modal-ejemplo">
+                num1 + num2 = resultado
+            </p>
+            <p class="modal-ejemplo">
+                (Operación matemática = Sumar)
+            </p>
+            <div class="img-box">
+                <img src="img/saludo.png" alt="imgInfo">
+            </div>
+            <p class="firma-pagina">Jesús Domínguez</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

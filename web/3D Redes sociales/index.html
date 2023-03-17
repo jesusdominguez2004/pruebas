@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Encabezado -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título y hoja CSS -->
+    <title>3D Redes sociales</title>
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Conexión íconos Font Awesome 4.7 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<!-- Contenido página -->
+<body>
+    <section class="redes-sociales">
+        <ul class="iconos">
+            <li data-text="Facebook" data-color="#1877f2"><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+            <li data-text="Twitter" data-color="#0099ff"><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+            <li data-text="Instagram" data-color="#e4405f"><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+            <li data-text="YouTube" data-color="#ff0000"><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+    </section>
+
+    <!-- Javascript -->
+    <script src="vanilla-tilt.js"></script>
+    <script>
+        let lista = document.querySelectorAll('.iconos li'); // Todos los li dentro del ul 'iconos'
+        let fondoPagina = document.querySelector('.redes-sociales') // El contenedor
+
+        lista.forEach(elements => { // Por cada elemento
+            elements.addEventListener('mouseenter', function(event) {
+                let color = event.target.getAttribute('data-color'); // Busca el color
+                fondoPagina.style.backgroundColor = color; // Remplaza
+            })
+            elements.addEventListener('mouseleave', function(event) { // Cuando no está enfocado
+                fondoPagina.style.backgroundColor = '#fff'; // Cambiar a fondo blanco
+            })
+        })
+        
+        // Efecto 3D
+        VanillaTilt.init(document.querySelectorAll('.redes-sociales li a'), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            'max-glare': 1
+        });
+    </script>
+</body>
+</html>

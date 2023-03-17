@@ -1,0 +1,103 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    min-height: 100vh;
+}
+
+.contenedor {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+.contenedor .box {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    margin: 5px;
+}
+/* Estilos img */
+.contenedor .box .img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1.5s ease-in-out;
+}
+.contenedor .box:hover .img-box {
+    transform: translateY(-100%);
+}
+.contenedor .box .img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* - - Estilos capas - - */
+.contenedor .box .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1.5s ease-in-out;
+}
+/* Capa 1 */
+.contenedor .box .layer.layer1 {
+    background: #0096ff;
+    transform: translateY(100%);
+}
+.contenedor .box:hover .layer.layer1 {
+    transform: translateY(-100%);
+}
+/* Capa 2 */
+.contenedor .box .layer.layer2 {
+    background: #ffbb00;
+    transform: translateY(200%);
+}
+.contenedor .box:hover .layer.layer2 {
+    transform: translateY(-100%);
+}
+/* - - Estilos contenido - - */
+.contenedor .box .content-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    color: #fff;
+    transition: 1.5s ease-in-out;
+    transform: translateY(300%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+.contenedor .box:hover .content-box {
+    transform: translateY(0);
+}
+/* Contenedor texto */
+.contenedor .box .content-box div {
+    transition: 1.5s ease-in-out;
+    transform: translateY(400%);
+}
+.contenedor .box:hover .content-box div {
+    transform: translateY(0);
+}

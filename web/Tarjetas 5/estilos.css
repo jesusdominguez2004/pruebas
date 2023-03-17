@@ -1,0 +1,131 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Centrado horizontalmente */
+    align-items: center; /* Centrado verticalmente */
+    min-height: 100vh; /* Altura mínima */
+}
+
+/* Estilos cartas */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centrado horizontalmente */
+    align-items: center; /* Centrado verticalmente */
+
+    flex-wrap: wrap; /* Mover abajo al no caber sus elementos */
+}
+.container .card {
+    position: relative;
+    width: 600px;
+    height: 350px;
+    margin: 22px;
+    display: flex;
+    justify-content: flex-start; /* Ajustado a la izquierda */
+    align-items: center; /* Centrado verticalmente */
+    background: linear-gradient(45deg, #1a2f3f, #7094ce);
+
+    transition: 0.5s;
+}
+/* Img cartas */
+.container .card img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 400px;
+    transition: 0.5s;
+}
+.container .card:hover img {
+    left: 75%;
+    height: 500px;
+}
+/* Contenido cartas */
+.container .card .content {
+    position: relative;
+    width: 50%;
+    left: 20%;
+    opacity: 0;
+    visibility: hidden;
+    padding: 20px 20px 20px 40px;
+    transition: 0.5s;
+}
+.container .card:hover .content {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+/* Título cartas */
+.container .card .content h2 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.2em;
+    line-height: 1em;
+}
+/* Descripción cartas */
+.container .card .content p {
+    color: #fff;
+}
+/* Enlaces cartas */
+.container .card .content a {
+    position: relative;
+    color: #111;
+    background: #fff;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Make it responsive */
+
+/* Diseño 1 */
+@media (max-width: 1240px) {
+
+    .container .card {
+        width: auto;
+        max-width: 600px;
+        align-items: flex-start;
+    }
+    .container .card:hover {
+        height: 600px;
+    }
+    .container .card:hover img {
+        left: 50%;
+        height: 350px;
+    }
+
+    .container .card .content {
+        width: 100%;
+        left: 0;
+        padding: 40px;
+    }
+}
+/* Diseño 2 */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+    .container .card {
+        margin: 40px 20px;
+    }
+}
+/* Diseño 3 */
+@media (max-width: 420px) {
+    .container .card .content {
+        padding: 30px;
+    }
+    .container .card:hover img {
+        height: 300px;
+    }
+}

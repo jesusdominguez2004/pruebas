@@ -1,0 +1,95 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor */
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+/* Contenedor íconos */
+.iconos {
+    position: relative;
+    display: flex;
+}
+.iconos li {
+    list-style: none;
+}
+/* Texto informativo */
+.iconos li::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    font-size: 14vh;
+    pointer-events: none;
+    font-weight: 700;
+    transition: 0.5s; /* Animado */
+    opacity: 0;
+}
+/* Texto aparecerá y se moverá */
+.iconos li:hover:before {
+    opacity: 0.1;
+    transform: translate(-50%, calc(-50% + 120px));
+    -webkit-transform: translate(-50%, calc(-50% + 120px));
+    -o-transform: translate(-50%, calc(-50% + 120px));
+    -ms-transform: translate(-50%, calc(-50% + 120px));
+}
+/* Íconos */
+.iconos li a {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 4em;
+
+    transform-style: preserve-3d; /* Importante */
+    perspective: 500px; /* Importante */
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.1);
+    transition: background 0.25s;
+}
+/* Solución bordes JS */
+.js-tilt-glare {
+    border-radius: 10px;
+}
+/* Hovers */
+.iconos li a:hover.facebook {
+    background: #1877f2;
+}
+.iconos li a:hover.twitter {
+    background: #0099ff;
+}
+.iconos li a:hover.instagram {
+    background: #e4405f;
+}
+.iconos li a:hover.youtube {
+    background: #ff0000;
+}
+/* Íconos de fontawesome 4.7 */
+.iconos li a .fa {
+    transition: 0.25s;
+    pointer-events: none;
+}
+.iconos li a:hover .fa {
+    color: #fff;
+    transform: scale(1.75) translateZ(50px); /* Importante */
+}

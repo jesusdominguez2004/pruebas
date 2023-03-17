@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Encabezado: ajustes, conexiones y más -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título y hoja CSS -->
+    <title>Galería 1 | Diseño web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Contenido página -->
+<body>
+    <section>
+        <!-- Menú -->
+        <ul>
+            <li class="list active" data-filter="todo">Todo</li>
+            <li class="list" data-filter="bugatti">Bugatti</li>
+            <li class="list" data-filter="ford">Ford</li>
+            <li class="list" data-filter="mclaren">McLaren</li>
+            <li class="list" data-filter="lamborghini">Lamborghini</li>
+            <li class="list" data-filter="ssc">SSC</li>
+        </ul>
+        <!-- Carros -->
+        <div class="cars">
+            <div class="itemBox bugatti"><img src="img/bugatti veyron 2016.jpg"></div>
+            <div class="itemBox ford"><img src="img/ford mustang shelby gt350.jpeg"></div>
+            <div class="itemBox mclaren"><img src="img/mclaren mp4 12c.jpg"></div>
+            <div class="itemBox bugatti"><img src="img/bugatti chiron.jpeg"></div>
+            <div class="itemBox ford"><img src="img/ford raptor.jpg"></div>
+            <div class="itemBox ssc"><img src="img/ssc tuatara.jpg"></div>
+            <div class="itemBox lamborghini"><img src="img/lamborghini huracan.jpg"></div>
+            <div class="itemBox mclaren"><img src="img/mclaren 720s.jpg"></div>
+            <div class="itemBox ssc"><img src="img/ssc ultimate aero xt.jpg"></div>
+            <div class="itemBox lamborghini"><img src="img/lamborghini aventador.jpg"></div>
+        </div>
+    </section>
+
+    <!-- JQuery 3.6.0 CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.list').click(function(){
+                const value = $(this).attr('data-filter');
+
+                if (value == 'todo'){
+                    $('.itemBox').show('1000');
+                }
+                else {
+                    $('.itemBox').not('.'+value).hide('1000');
+                    $('.itemBox').filter('.'+value).show('1000');
+                }
+            })
+            // Add active class on selected item
+            $('.list').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        })
+    </script>
+</body>
+</html>

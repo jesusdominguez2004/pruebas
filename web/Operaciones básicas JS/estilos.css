@@ -1,0 +1,268 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fafafa;
+}
+
+/* Contenedor menú */
+.contenedor {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: flex-start; /* Verticalmente */
+    align-items: center; /* Horizontalmente */
+    flex-direction: column;
+}
+/* Ver info */
+.contenedor .info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.contenedor .info i {
+    color: #024972;
+    font-size: 1.2em;
+}
+.contenedor .info i:hover {
+    color: #0a679c;
+}
+/* Contenedor textos */
+.contenedor .text-box {
+    position: relative;
+    margin: 40px;
+}
+/* Título */
+.contenedor .text-box h2 {
+    text-align: center;
+    color: #024972;
+}
+/* Mensaje */
+.contenedor .text-box p {
+    color: #2e2e2e;
+    font-size: 1.1em;
+}
+/* Contenedor inputs */
+.contenedor .box {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Verticalmente */
+    align-items: center; /* Horizontalmente */
+    background: #024972;
+}
+/* Inputs */
+.contenedor .box input {
+    margin: 40px;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+.contenedor .box input:hover {
+    background: #fcfcfc;
+    border: 1px solid #ccc;
+}
+.contenedor .box #resultado {
+    pointer-events: none !important;
+}
+/* Íconos operación */
+.contenedor .box span {
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #fff;
+    pointer-events: none;
+    border-radius: 50%;
+    padding: 5px 12px;
+    transition: 1s !important;
+}
+/* Contenedor Select operación */
+.contenedor .select-box {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Select operación */
+.contenedor .select-box select {
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #f3f3f3;
+    background: #fff;
+    color: #024972;
+    cursor: pointer;
+}
+.contenedor .select-box select:hover {
+    background: #f8f8f8;
+}
+/* Btn calcular */
+.contenedor .select-box button {
+    margin-left: 20px;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background: #024972;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contenedor .select-box button:hover {
+    background: #025585;
+}
+.contenedor .select-box button:focus {
+    border: 3px solid #0a679c;
+    border-radius: 5px;
+}
+
+/* Modal info */
+
+/* Contenedor modal */
+#modalBox {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centado vertical */
+
+    transform: translateY(-200%);
+    transition: 1s;
+}
+#modalBox.active {
+    transform: translateY(0);
+}
+/* Modal */
+#modalBox #modal {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    padding: 15px 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+/* Ícono cerrar modal */
+#modalBox #modal #closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+#modalBox #modal #closeModal i {
+    color: #024972;
+    font-size: 1.2em;
+}
+#modalBox #modal #closeModal i:hover {
+    color: #0a679c;
+}
+/* Ejemplo modal */
+#modalBox #modal .modal-ejemplo {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    color: #024972;
+}
+/* Img modal */
+#modalBox #modal .img-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#modalBox #modal .img-box img {
+    width: 67%;
+}
+/* Firma página (Mi nombre) */
+#modalBox #modal .firma-pagina {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: #c7c7c7;
+    font-size: 12px;
+}
+
+
+/* Now, make it responsive */
+@media (max-width: 991px) {
+    /* Tamaño del contenedor */
+    .contenedor {
+        width: auto;
+        max-width: 400px;
+    }
+    /* Título y descripción */
+    .contenedor .text-box h2 {
+        font-size: 1em;
+    }
+    .contenedor .text-box p {
+        font-size: 0.9em;
+    }
+    /* Inputs */
+    .contenedor .box input {
+        margin: 20px 10px;
+        width: 50px;
+        height: 40px;
+    }
+    /* Select operación */
+    .contenedor .select-box select {
+        width: 90px;
+        height: 40px;
+        font-size: 0.8em;
+    }
+    /* Btn calcular */
+    .contenedor .select-box button {
+        margin-left: 20px;
+        width: 90px;
+        height: 30px;
+        font-size: 0.8em;
+    }
+    /* Modal */
+    #modalBox #modal {
+        width: 300px;
+        height: 350px;
+        padding: 15px 10px;
+    }
+    /* Título modal */
+    #modalBox #modal h3 {
+        font-size: 0.8em;
+    }
+    /* Descripción modal */
+    #modalBox #modal p {
+        font-size: 0.8em;
+    }
+    /* Ejemplo modal */
+    #modalBox #modal .modal-ejemplo {
+        font-size: 0.8em;
+    }
+    /* Img modal */
+    #modalBox #modal .img-box img {
+        width: 75%;
+    }
+    /* Firma página (Mi nombre) */
+    #modalBox #modal .firma-pagina {
+        font-size: 10px;
+    }
+}

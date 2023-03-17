@@ -1,0 +1,88 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #060a1f;
+}
+
+/* Título reloj */
+#clock h2 {
+    position: relative;
+    display: block;
+    color: #fff;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.8em;
+}
+/* Contenedor hora */
+#clock #time {
+    display: flex;
+}
+/* Contenedor de cada parte */
+#clock #time div {
+    position: relative;
+    margin: 0 5px;
+    /* Reflejo */
+    -webkit-box-reflect: below 2px linear-gradient(transparent, #0004);
+}
+/* Contenedores de cada parte */
+#clock #time div span {
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 80px;
+    background: #2196f3;
+    color: #fff;
+    font-weight: 300;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+/* Textos de cada parte */
+#clock #time div span:nth-child(2) {
+    height: 30px;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    box-shadow: none;
+    background: #127fd6;
+    text-transform: uppercase;
+    z-index: 9;
+}
+/* Color de fondo segundos */
+#clock #time div:nth-last-child(2) span {
+    background: #ff006a;
+}
+/* Texto de fondo segundos */
+#clock #time div:nth-last-child(2) span:nth-child(2) {
+    background: #ec0062;
+}
+/* Indicador AM-PM */
+#clock #time div:nth-last-child(1) span {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    background: #fff;
+    color: #000;
+    /* Reflejo */
+    -webkit-box-reflect: below 2px linear-gradient(transparent, #0004);
+}

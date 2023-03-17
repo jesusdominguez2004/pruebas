@@ -1,0 +1,118 @@
+/* Mi hoja de estilos CSS */
+/* Fuente Google */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center; /* Centrado horizontalmente */
+  align-items: center; /* Centro verticalmente */
+  min-height: 100vh;
+  background: #fbe9e7;
+}
+
+/* Estilos carta de presentación */
+.carta {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.25);
+ 
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  transition: 1s;
+}
+.carta:hover {
+  transform: translateX(50%);
+}
+/* Img de perfíl */
+.carta .img-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  
+  transform-origin: left;
+  transform-style: preserve-3d;
+  background: #000;
+  transition: 1s;
+}
+.carta:hover .img-box {
+  transform: rotateY(-180deg);
+}
+.carta .img-box img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  
+  object-fit: cover;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+/* Luego de abrirse la carta, img 1 se oculta, entonces img 2 apatece */
+.carta .img-box img:nth-child(2) {
+  transform: rotateY(180deg);
+}
+/* Detalles de la carta */
+.carta .detalles {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 20px; /* Espacio interior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carta .detalles .contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/* Nombre y título */
+.carta .detalles .contenido h2 {
+  text-align: center;
+  flex-wrap: 700;
+  line-height: 1em;
+}
+.carta .detalles .contenido h2 span {
+  color: #e21212;
+  font-size: 0.8em;
+}
+/* Redes sociales */
+.carta .detalles .contenido .redes-sociales {
+  position: relative;
+  display: flex;
+  margin-top: 10px;
+}
+.carta .detalles .contenido .redes-sociales a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 5px; /* Separados */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transition: 0.2s; /* Animación de todo */
+}
+.carta .detalles .contenido .redes-sociales a:hover {
+  background: #e21212;
+}

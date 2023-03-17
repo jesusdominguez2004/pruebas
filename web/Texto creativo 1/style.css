@@ -1,0 +1,60 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #252839;
+}
+
+/* Texto Creativo */
+h2 {
+  position: relative;
+  font-size: 7vw;
+  -webkit-text-stroke: 0.3vw #383d52; /* Bordes internos del texto */
+  text-transform: uppercase;
+}
+
+/* Texto duplicado para efecto */
+h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: #01fe87;
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid #01fe87;
+  overflow: hidden;
+  /* Llamar animación */
+  animation: animate 6s linear infinite;
+}
+
+/* Definir animación */
+@keyframes animate {
+  0%, 10%, 100% {
+    width: 0;
+  }
+  70%, 90% {
+    width: 100%;
+  }
+}
+
+/* Descripción (Idioma) */
+p {
+  text-align: center;
+  font-size: 4vw;
+  color: #fff;
+  border: none;
+}

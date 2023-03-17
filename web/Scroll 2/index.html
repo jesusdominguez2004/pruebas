@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<!-- Encabezado: ajustes, conexiones y más -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoll 2 | Pruebas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Contenido página -->
+<body>
+    <header>
+        <img src="img/bg.jpg" alt="fondo" class="banner">
+        <a href="#" class="logo">Hello.</a>
+        <div class="toggle"></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Creative Fullscreen Sticky Header</h2>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Odit dolor ullam quis voluptas nobis qui, alias nulla cumque incidunt? 
+            Harum iusto eum deleniti. Aspernatur omnis maxime tempore perspiciatis molestiae commodi quae molestias dignissimos itaque ut. 
+            Perspiciatis ducimus similique alias veritatis et in debitis labore consequatur recusandae repellat iure natus, 
+            est placeat, magnam, nam quae rerum distinctio. Esse, odio optio corrupti a minima ad hic temporibus, 
+            possimus quasi error reiciendis iure! Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Odit dolor ullam quis voluptas nobis qui, alias nulla cumque incidunt? 
+            Harum iusto eum deleniti. Aspernatur omnis maxime tempore perspiciatis molestiae commodi quae molestias dignissimos itaque ut. 
+            Perspiciatis ducimus similique alias veritatis et in debitis labore consequatur recusandae repellat iure natus, 
+            est placeat, magnam, nam quae rerum distinctio. Esse, odio optio corrupti a minima ad hic temporibus, 
+            possimus quasi error reiciendis iure!<br><br>
+
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Odit dolor ullam quis voluptas nobis qui, alias nulla cumque incidunt? 
+            Harum iusto eum deleniti. Aspernatur omnis maxime tempore perspiciatis molestiae commodi quae molestias dignissimos itaque ut. 
+            Perspiciatis ducimus similique alias veritatis et in debitis labore consequatur recusandae repellat iure natus, 
+            est placeat, magnam, nam quae rerum distinctio. Esse, odio optio corrupti a minima ad hic temporibus, 
+            possimus quasi error reiciendis iure! Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Odit dolor ullam quis voluptas nobis qui, alias nulla cumque incidunt? 
+            Harum iusto eum deleniti. Aspernatur omnis maxime tempore perspiciatis molestiae commodi quae molestias dignissimos itaque ut. 
+            Perspiciatis ducimus similique alias veritatis et in debitis labore consequatur recusandae repellat iure natus, 
+            est placeat, magnam, nam quae rerum distinctio. Esse, odio optio corrupti a minima ad hic temporibus, 
+            possimus quasi error reiciendis iure!<br><br>
+
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Odit dolor ullam quis voluptas nobis qui, alias nulla cumque incidunt? 
+            Harum iusto eum deleniti. Aspernatur omnis maxime tempore perspiciatis molestiae commodi quae molestias dignissimos itaque ut. 
+            Perspiciatis ducimus similique alias veritatis et in debitis labore consequatur recusandae repellat iure natus, 
+            est placeat, magnam, nam quae rerum distinctio. Esse, odio optio corrupti a minima ad hic temporibus, 
+            possimus quasi error reiciendis iure! Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+            Odit dolor ullam quis voluptas nobis qui, alias nulla cumque incidunt? 
+            Harum iusto eum deleniti. Aspernatur omnis maxime tempore perspiciatis molestiae commodi quae molestias dignissimos itaque ut. 
+            Perspiciatis ducimus similique alias veritatis et in debitis labore consequatur recusandae repellat iure natus, 
+            est placeat, magnam, nam quae rerum distinctio. Esse, odio optio corrupti a minima ad hic temporibus, 
+            possimus quasi error reiciendis iure!
+        </p>
+    </section>
+
+    
+    <!-- JavaScript -->
+    <script type="text/javascript">
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        const navigation = document.querySelector('nav');
+        document.querySelector('.toggle').onclick = function() {
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Foto de Felipe Balduino: https://www.pexels.com/es-es/foto/mujer-sosteniendo-la-camara-2743065/ -->
+    <!-- Responsive Fullscreen Animated Sticky Header using CSS & Vanilla Javascript -->
+    <!-- @OnlineTutorials -->
+</body>
+</html>

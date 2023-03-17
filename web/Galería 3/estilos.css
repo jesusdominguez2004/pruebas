@@ -1,0 +1,107 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    min-height: 100vh;
+}
+/* Estilos contenedor */
+.contenedor {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+/* Estilos box */
+.contenedor .box {
+    position: relative;
+    width: 275px;
+    height: 275px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.contenedor .box:hover {
+    z-index: 1;
+    transform: scale(1.25);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+}
+/* Estilos img-box */
+.contenedor .box .img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:  100%;
+}
+.contenedor .box .img-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(180deg,#3c9ef3,#000);
+    mix-blend-mode: multiply;
+    opacity: 0;
+    transition: 0.5s;
+}
+.contenedor .box:hover .img-box::before {
+    opacity: 1;
+}
+/* Estilos img */
+.contenedor .box .img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Estilos contenido */
+.contenedor .box .contenido {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:  100%;
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    z-index: 2;
+}
+/* Estilos títulos */
+.contenedor .box .contenido h2 {
+    color: #fff;
+    transition: 0.5s;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 20px;
+    transform: translateY(235px);
+}
+.contenedor .box:hover .contenido h2 {
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+/* Estilos párrafos */
+.contenedor .box .contenido p {
+    color: #fff;
+    transition: 0.5s;
+    font-size: 14px;
+    transform: translateY(235px);
+}
+.contenedor .box:hover .contenido p {
+    transform: translateY(0);
+    transition-delay: 0.7s;
+}

@@ -1,0 +1,52 @@
+/* Mi hoja de estilos CSS */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    padding: 20px;
+    width: 100%;
+    margin: 40px auto;
+}
+/* Menú */
+section ul {
+    display: flex;
+    margin-bottom: 10px;
+}
+section ul li {
+    list-style: none;
+    background: #eee;
+    padding: 8px 20px;
+    margin: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+section ul li.active {
+    background: #03a9f4;
+    color: #fff;
+}
+/* Carros */
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cars .itemBox {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+}
+.cars .itemBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

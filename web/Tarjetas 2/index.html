@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Encabezado: ajustes, conexiones, codificación, título y más -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño web | Tarjetas 2</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+</head>
+<!-- Contenido página -->
+<body>
+    <div class="contenedor">
+        <!-- Tarjeta 1 -->
+        <div class="tarjeta">
+            <div class="box" id="tarjeta1">
+                <div class="contenido">
+                    <h2>01</h2>
+                    <h3 id="titulo1">Primera carta</h3>
+                    <p id="parrafo1">
+                        Este es el texto que aparecerá en la descripción
+                        de cada carta, se suele utilizar un texto denominado
+                        lorem.
+                    </p>
+                    <a href="#">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="tarjeta">
+            <div class="box" id="tarjeta2">
+                <div class="contenido">
+                    <h2>02</h2>
+                    <h3 id="titulo2">Segunda carta</h3>
+                    <p id="parrafo2">
+                        Este es el texto que aparecerá en la descripción
+                        de cada carta, se suele utilizar un texto denominado
+                        lorem.
+                    </p>
+                    <a href="#">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="tarjeta">
+            <div class="box" id="tarjeta3">
+                <div class="contenido">
+                    <h2>03</h2>
+                    <h3 id="titulo3">Tercera carta</h3>
+                    <p id="parrafo3">
+                        Este es el texto que aparecerá en la descripción
+                        de cada carta, se suele utilizar un texto denominado
+                        lorem.
+                    </p>
+                    <a href="#">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cambiar color tarjetas -->
+    <div id="btnTemas"></div>
+    <div class="selector-tema">
+        <button class="btn-tema rojo" onclick="cambiarFondo('linear-gradient(45deg, #ff0000, #950101)')"></button>
+        <button class="btn-tema verde" onclick="cambiarFondo('linear-gradient(45deg, #01b327, #0154c0)')"></button>
+        <button class="btn-tema azul" onclick="cambiarFondo('linear-gradient(45deg, #0154c0, #ff0000)')"></button>
+        <a class="btn-tema blanco" href="index.html"></a>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        const btnTemas = document.getElementById('btnTemas');
+        const menuTemas = document.querySelector('.selector-tema');
+        const tarjeta1 = document.getElementById('tarjeta1');
+        const tarjeta2 = document.getElementById('tarjeta2');
+        const tarjeta3 = document.getElementById('tarjeta3');
+        const parrafo1 = document.getElementById('parrafo1');
+        const parrafo2 = document.getElementById('parrafo2');
+        const parrafo3 = document.getElementById('parrafo3');
+        const titulo1 = document.getElementById('titulo1');
+        const titulo2 = document.getElementById('titulo2');
+        const titulo3 = document.getElementById('titulo3');
+
+        btnTemas.onclick = function() {
+            btnTemas.classList.toggle('active')
+            menuTemas.classList.toggle('active')
+        }
+
+        // Cambiar color fondo  
+        function cambiarFondo(color) {
+            tarjeta1.style.background = color;
+            tarjeta2.style.background = color;
+            tarjeta3.style.background = color;
+            titulo1.style.color = '#fff';
+            titulo2.style.color = '#fff';
+            titulo3.style.color = '#fff';
+            parrafo1.style.color = '#fff';
+            parrafo2.style.color = '#fff';
+            parrafo3.style.color = '#fff';
+        }
+    </script>
+</body>
+</html>

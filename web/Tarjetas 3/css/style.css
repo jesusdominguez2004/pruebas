@@ -1,0 +1,160 @@
+/* Mi hoja de estilos CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos section que ocupa toda la pantalla */
+section {
+    position: relative;
+    background: #f0f8ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 1s; /* transición fondo oscuro */
+}
+/* Tema oscuro (si section class="sección dark") */
+section.dark {
+    background: #24292d;
+}
+/* Estilos tarjeta */
+section .card {
+    position: relative;
+    width: 300px;
+    height: 380px;
+    background: #fff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 1s; /* transición fondo oscuro */
+}
+section.dark .card {
+    background: #323840;
+}
+section .card .content, section .card .img-text {
+    display: flex;
+    justify-content: center; /* centrar horizontal */
+    align-items: center; /* centrar vertical */
+    flex-direction: column; /* un objeto debajo del otro */
+}
+
+/* Estilos imagen perfíl */
+section .card .img-text .img-bx {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* círculo */
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+section .card .img-text .img-bx img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Estilos nombre */
+section .card .img-text h3 {
+    font-weight: 500;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    text-align: center;
+    color: #2fa1ff;
+    transition: color 1s;
+}
+section.dark .card .img-text h3 {
+    color: #ccc;
+}
+/* Estilos ocupación */
+section .card .img-text h3 span {
+    font-weight: 400;
+    color: #777;
+    font-size: 0.75em;
+}
+/* Estilos íconos como enlaces */
+section .card .contenedor-iconos {
+    display: flex;
+    margin-top: 15px;
+}
+section .card .contenedor-iconos li {
+    list-style: none;
+}
+section .card .contenedor-iconos li a {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #e9f5ff;
+    color: #2fa1ff;
+    margin: 0px 5px; /* separar los a entre sí */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* quitar línea de abajo */
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.5s; /* Para las animaciones */
+}
+section.dark .card .contenedor-iconos li a {
+    background: #404852;
+}
+/* En el hover color del ícono es claro */
+section .card .contenedor-iconos li a:hover{
+    color: #fff;
+}
+section .card .contenedor-iconos li a .fa{
+    position: relative;
+    z-index: 1000;
+}
+/* Agregar un círculo inteligente, que aprece o desaparece de color azul */
+section .card .contenedor-iconos li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2fa1ff;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+section .card .contenedor-iconos li a:hover:before {
+    transform: scale(1);
+}
+/* Ícono cambiar tema */
+.toggle {
+    position: absolute;
+    top: 20px; /* ajustado arriba */
+    right: 20px; /* y ajustado a la derecha */
+    background: #e9f5ff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; /* círculo */
+    /* centrar contenido dentro de él (ícono)*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 1s;
+}
+section.dark .toggle {
+    background: #404852;
+}
+/* Cuando tema claro esté activo, aparecerá ícono luna */
+.toggle::before{
+    content: '\f186';
+    font-family: fontAwesome;
+    color: #2fa1ff;
+}
+/* Cuando tema oscuro esté activo, aparecerá ícono sol*/
+section.dark .toggle::before {
+    content: '\f185';
+    font-family: fontAwesome;
+    color: #fff;
+}

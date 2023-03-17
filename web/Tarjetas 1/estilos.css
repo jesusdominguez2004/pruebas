@@ -1,0 +1,196 @@
+/* Mi hoja de estilos CSS */
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1d061a;
+}
+/* Contenedor de la página */
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Resposivo */
+    padding: 40px 0;
+}
+/* Contenedor tarjetas */
+.contenedor .box {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 30px;
+    transition: 0.5s;
+}
+/* Fondo de cada tarjeta */
+.contenedor .box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg); /* Curvo */
+    transition: 0.5s;
+}
+/* Duplicado para efecto sombra */
+.contenedor .box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg); /* Curvo */
+    transition: 0.5s;
+    filter: blur(30px); /* Efecto sombra */
+}
+.contenedor .box:hover::before,
+.contenedor .box:hover::after {
+    transform: skewX(0deg); /* Vuelve a estar recto */
+    left: 20px;
+    width: calc(100% - 90px); /* Un modo de centrar */
+}
+/* Color fondo tarjeta 1 */
+.contenedor .box:nth-child(1)::before,
+.contenedor .box:nth-child(1)::after {
+    background: linear-gradient(315deg, #ffbc00, #ff0058);
+}
+/* Color fondo tarjeta 2 */
+.contenedor .box:nth-child(2)::before,
+.contenedor .box:nth-child(2)::after {
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+/* Color fondo tarjeta 3 */
+.contenedor .box:nth-child(3)::before,
+.contenedor .box:nth-child(3)::after {
+    background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+
+/*  */
+.contenedor .box span {
+    display: block;
+    position: absolute;
+    top: 0; /* Centrar */
+    left: 0; /* Centrar */
+    right: 0; /* Centrar */
+    bottom: 0; /* Centrar */
+    z-index: 50;
+    pointer-events: none;
+}
+/* Cuadro que va arriba */
+.contenedor .box span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    /* Animado */
+    animation: flotar 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+.contenedor .box:hover span::before {
+    top: -50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+/* Cuadro que va abajo */
+.contenedor .box span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    /* Animado */
+    animation: flotar 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation-delay: -1s;
+}
+.contenedor .box:hover span::after {
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+/* Definir animación 'flotar' */
+@keyframes flotar {
+    0%, 100%{
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* Contenido tarjetas */
+.contenedor .box .contenido {
+    position: relative;
+    left: 0;
+    padding: 20px 40px;
+    /* Tarjeta trasparente */
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    z-index: 1; /* Por encima de todo */
+    transition: 0.5s;
+    color: #fff;
+}
+.contenedor .box:hover .contenido {
+    left: -25px;
+    padding: 60px 40px;
+}
+.contenedor .box .contenido h3 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.contenedor .box .contenido p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+}
+.contenedor .box .contenido a {
+    display: inline-block;
+    font-size: 1.1.em;
+    color: #111;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+}
