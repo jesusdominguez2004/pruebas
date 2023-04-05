@@ -1,12 +1,12 @@
 """
 Taller 1 | Semana 9 | Jesús Alberto Domínguez Charris
 
-- Obtener grado de salida de un nodo
-- Obtener grado de entrada de un nodo
-- Eliminar un arco existente en el grafo
-- Eliminar un vértice existente en el grafo
-- Indicar los nodos que tienen a otro como adyacente
-- Implementar pesos en los arcos (class Arco)
+- Obtener grado de salida de un nodo (línea 204)
+- Obtener grado de entrada de un nodo (línea 211)
+- Eliminar un arco existente en el grafo (línea 226)
+- Eliminar un vértice existente en el grafo (línea 235)
+- Indicar los nodos que tienen a otro como adyacente (línea 253)
+- Implementar pesos en los arcos (línea 13)
 """
 
 # 6. Implementar pesos en los arcos (class Arco)
