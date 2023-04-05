@@ -1,0 +1,121 @@
+NOTAS | SEMANA 7
+
+TEMA CORTE 2: GRAFOS
+
+Usos grafos:
+    listas adyacencia
+    matrices adyacencia
+    Nosotros trabajaremos las listas adyacencia
+    Algoritmos de caminos mínimos (usando grafos)
+
+Grafos:
+    Estructura de datos dinámicas
+    Multidimensional
+    Relaciones entre objetos (entes)
+    Formado por vértices (nodos) y pares de vértices o arcos (aristas)
+    Relaciones entre vértices
+    No hay jerarquía
+    Diseñado para rentener información sobre las conexiones entre nodos
+    No tanto el elemento guardado en cada nodo
+    La mejor forma de llegar
+    La mejor forma de visitar
+    La mejor forma de resolver
+    No se pemiten elementos repetidos
+
+Tipos grafos:
+    Grafos no dirigidos (un camino, A - B)
+    Grafos dirigidos (dos caminos, ida y vuelta, A -> B, B -> A)
+    Si la dirección no importa entonces NO DIRIGIDO -
+    Si la dirección importa entonces DIRIGIDO ->
+
+Arco (u, v):
+    -> path
+    Adyacencia es conexión directa
+    Para un arco (u, v) se dice que u y v son adyacentes
+    A -> B
+    B -> A
+    B -> C
+    C -> D
+    D -> E
+    E -> F
+
+    A es ADYACENTE a B
+    B es ADYACENTE a A
+    F NO ES ADYACENTE a F
+    C NO ES ADYACENTE a a
+
+Grafos de paso:
+    Los arcos suelen tener un peso o valor (weight)
+    Puede ser positiva o negativa
+    Estos grafos se conocen como grafo valorado
+    (O con pesos - weighted)
+
+Grado del nodo:
+    node order
+    número de arcos que contienen al vértices
+    grafos dirigidos hay dos
+    grado de entrada (números de arcos que llegan)
+    y grado de salida (número de arcos que salen de él)
+    grado de salida  = número de adyacentes
+    grado de entrada = numero de nodos a los cuáles el mismo es adyacentes
+    hay algunos arcos que no tienen conexiones (nodo terminal)
+    la gramática de un lenguaje de programación es un grafo
+
+Camino (path):
+    optimización
+    ruta más corta
+    secuencia de vértices desde un v.inicial (vo) a uno final (vn)
+    P = (v0, v1, v2, ..., vn)
+    Número de vértices + 1 = longitud del camino o path
+    4 vértices -> longitud path 5
+    Una lista simple es un grafo dejenerado
+    P1 = (A, B, C, D)
+    p2 = (A, C, B, D)
+    P2 = (B, A, C, D)
+    etc
+
+    longitud del camino
+    grafo sin pesos = número de arcos en el camino
+    grafo con pesos = suma de pesos de los arcos en el camino
+    hay varios caminos
+    buscar el más corto o con menos saltos o con menos peso (weight)
+
+    un camino simple: si todos los nodos son distintos, exceptos los estremos del camino
+    un ciclo: es un camino simple cerrado, tiene igual inicio y final
+    un grafo dirigido sin ciclos se le llama GDA (Grado dirigido acíclico)
+    ciclo = (A, E, B, F, A)
+    ¿es cíclico? busca todos los caminos posibles, con una sola se termina la búsqueda
+
+    camino más corto sin peso -> menor cantidad de saltos
+    camino más corto con peso -> menor cantidad de pesos
+
+Conexo:
+    Un grafo no dirigido es conexo SI existe camino entre calquier par de nodos (vértices)
+    si desde cualquier nodo puedes ir a cualquier otro
+    Un grado dirigido se dice que es fuertemente conexo
+    Un grafo completo tiene un arco para cualquier par de vértices
+
+
+Adelanto próxima semana:
+    matriz de adyacencia
+    eje x = ?
+    eje y = ?
+    0 = no hay conexión
+    1 = hay conexión
+    G = {D, F, K, L, R}
+        D F K L R 
+    D | 0 1 1 0 0 |
+    F | 1 0 1 0 0 |
+    K | 0 1 0 0 0 |
+    L | 0 1 1 0 0 |
+    R | 1 0 0 0 0 |
+
+    Pero con lista adyacencia:
+    G = {D, F, K, L, R}
+    D - F - K
+    F - D - K
+    K - F
+    L - F - K
+    R - D
+
+TAREA: Estudiar listas y matrices de adyacencias

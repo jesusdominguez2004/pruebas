@@ -1,0 +1,32 @@
+NOTAS | SEMANA 8
+
+TEMA CORTE 2: GRAFOS
+
+Estudiar:
+    listas adyacentes
+    lista adyacente dirigida 
+    lista adyacente no dirigida
+    matrices adyacentes
+    matriz adyacente dirigida 
+    matriz adyacente no dirigida
+
+Repasar:
+    diccionarios (dict)
+    conjuntos (set)
+
+Librerías Python grafos:
+    NetworksX
+
+
+Alt + Shift + flecha_abajo (duplicar línea actual)
+Ctrl + Shift + k (borrar línea actual)
+
+busqueda de conjuntos de adyacientes
+
+Recorridos dfs:
+    busca el camino más distante del primer nodo
+
+
+pregrado: usar soluciones o cosas que ya existen
+posgrado: usar soluciones o cosas que ya existen más complejo
+doctorado: inventar algo nuevo que se pueda usar paa soluciones
