@@ -325,36 +325,11 @@ class ListaAdyacencia:
                     return True
         return False
     
-    # 3. Determinar si el grafo es fuertemente conexo    
-    def __dfsFuertementeConexo(self, inicio, arcosVisitados=None):
-        if arcosVisitados is None:
-            arcosVisitados = set()
-        visitados = {inicio}
-        stack = [inicio]
-        while stack:
-            vertice = stack.pop()
-            vecino: Arco
-            for vecino in self.__listaVertices[vertice]:
-                if (vertice, vecino) not in arcosVisitados:
-                    visitados.add(vecino.verticeFinal)
-                    arcosVisitados.add((vertice, vecino))
-                    stack.append(vecino.verticeFinal)
-        return visitados
-
+    # 3. Determinar si el grafo es fuertemente conexo
     def grafoFuertementeConexo(self):
         if not self.grafoDirigido():
             return False
-        lista = []
-        arcosVisitados = set()
-        for inicio in self.__listaVertices:
-            visitadosInicio = self.__dfsFuertementeConexo(inicio, arcosVisitados)
-            lista.append(visitadosInicio)
-            if len(visitadosInicio) == len(self.__listaVertices):
-                arcosVisitados = set()
-                continue
-            else:
-                return False
-        return True
+        return self.grafoConexo()
     
     # 4. Determinar si el grafo es completo
     def grafoCompleto(self):
