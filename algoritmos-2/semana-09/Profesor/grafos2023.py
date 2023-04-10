@@ -74,3 +74,37 @@ class GrafoLista:
             if vertice not in visitados:
                 recorrido, visitados = self.__bfs(recorrido, visitados, vertice)
         return recorrido
+    
+lista_01 = GrafoLista()
+lista_01.adicionarVertice("A")
+lista_01.adicionarVertice("B")
+lista_01.adicionarVertice("C")
+lista_01.adicionarVertice("D")
+lista_01.adicionarVertice("E")
+lista_01.adicionarVertice("F")
+
+lista_01.adicionarArco("A", "D")
+lista_01.adicionarArco("D", "A")
+
+lista_01.adicionarArco("D", "C")
+lista_01.adicionarArco("C", "D")
+
+lista_01.adicionarArco("B", "C")
+lista_01.adicionarArco("C", "B")
+
+lista_01.adicionarArco("E", "F")
+lista_01.adicionarArco("F", "E")
+
+print(f"DFS desde 'A': {lista_01.recorrerProfundidad('A')}")
+print(f"DFS desde 'B': {lista_01.recorrerProfundidad('B')}")
+print(f"DFS desde 'C': {lista_01.recorrerProfundidad('C')}")
+print(f"DFS desde 'D': {lista_01.recorrerProfundidad('D')}")
+print(f"DFS desde 'E': {lista_01.recorrerProfundidad('E')}")
+print(f"DFS desde 'F': {lista_01.recorrerProfundidad('F')}\n")
+
+print(f"BFS desde 'A': {lista_01.recorrerAnchura('A')}")
+print(f"BFS desde 'B': {lista_01.recorrerAnchura('B')}")
+print(f"BFS desde 'C': {lista_01.recorrerAnchura('C')}")
+print(f"BFS desde 'D': {lista_01.recorrerAnchura('D')}")
+print(f"BFS desde 'E': {lista_01.recorrerAnchura('E')}")
+print(f"BFS desde 'F': {lista_01.recorrerAnchura('F')}")

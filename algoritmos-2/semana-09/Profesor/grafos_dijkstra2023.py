@@ -169,19 +169,34 @@ class Dijkstra:
         camino_encontrado.reverse()
         return camino_encontrado
 
-lista = GrafoLista()
-lista.adicionarVertice("A")
-lista.adicionarVertice("B")
-lista.adicionarVertice("C")
-lista.adicionarVertice("D")
-lista.adicionarArco("C", "B", 5)
-lista.adicionarArco("C", "D", 3)
-lista.adicionarArco("D", "B", 1)
-lista.adicionarArco("D", "C", 3)
+# PRUEBA
+# 1. Instanciar lista de adyacencia
+lista_01 = GrafoLista()
 
-print(f"Grafo 01: {lista}")
-print(f"Recorrido DFS desde 'A': {lista.recorrerProfundidad('A')}")
-print(f"Recorrido DFS desde 'B': {lista.recorrerProfundidad('B')}")
-print(f"Recorrido DFS desde 'C': {lista.recorrerProfundidad('C')}")
-print(f"Recorrido DFS desde 'D': {lista.recorrerProfundidad('D')}")
+# 2. Adicionar vértices
+lista_01.adicionarVertice("A")
+lista_01.adicionarVertice("B")
+lista_01.adicionarVertice("C")
+lista_01.adicionarVertice("D")
+lista_01.adicionarVertice("E")
+lista_01.adicionarVertice("F")
 
+# 3. Adicionar arcos
+lista_01.adicionarArco("A", "D", 2)
+lista_01.adicionarArco("D", "A", 2)
+
+lista_01.adicionarArco("D", "C", 2)
+lista_01.adicionarArco("C", "D", 2)
+
+lista_01.adicionarArco("B", "C", 2)
+lista_01.adicionarArco("C", "B", 2)
+
+lista_01.adicionarArco("E", "F", 2)
+lista_01.adicionarArco("F", "E", 2)
+
+print(f"DFS desde 'A': {lista_01.recorrerProfundidad('A')}")
+print(f"DFS desde 'B': {lista_01.recorrerProfundidad('B')}")
+print(f"DFS desde 'C': {lista_01.recorrerProfundidad('C')}")
+print(f"DFS desde 'D': {lista_01.recorrerProfundidad('D')}")
+print(f"DFS desde 'E': {lista_01.recorrerProfundidad('E')}")
+print(f"DFS desde 'F': {lista_01.recorrerProfundidad('F')}")
