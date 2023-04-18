@@ -1,0 +1,57 @@
+Notas semana 11
+
+GoDaddy
+Mis productos
+Mi dominio
+
+FileZilla (Client)
+
+
+Conectado a EC2 en consola:
+htop -> ver estado y proceso
+ls -> ver archivos
+cd nombre_carpeta -> avanzar
+cd . -> retroceder
+exit
+
+
+Sites
+New Site
+Protocol FTP 21
+HOST
+Encryption
+Logo Type
+
+
+Cloudfare, si no se sabe la ip
+y se hace un ping, te devuelve una
+ip diferente al del servidor
+del security group.
+
+File Transtfer Protocol
+
+SFTP SSH FTP
+host: ipv4 elástica
+logon type: key file
+user ubuntu
+key: llave.pem
+Confiar sí
+ 
+var
+www
+html
+index.html
+
+para reemplazar
+hay que pedir permiso
+buscar en consola
+cd ..
+cd..
+cd var
+ls
+cd www
+cd html
+ls
+index.html
+chmod -R 777 index.html
+sudo chmod -R 777 index.html
