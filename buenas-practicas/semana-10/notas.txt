@@ -1,0 +1,79 @@
+Semana 10
+
+http://buenaspracticasjesus.online/
+
+Dominio EC2 http
+Sin certificado
+
+"Gobierno pedirá datos reservados de WhatsApp"
+Es casi imposible porque los chat son cifrados
+Solo quien imite y recibe pueden tenerlos
+
+WhatsApp solo tiene mensajes cifrados
+Las llaves las tenemos nosotros
+
+
+Cloudflare
+
+Add site
+agregamos sitios
+free
+
+borramos CNAME y dejamos A
+
+ip_navegador -> Security Group -> EC2
+dominio -> Dominio GoDaddy -> DNS -> EC2
+
+DNS -> key:value -> dominio:ip
+
+Cloudflare se adueña del DNS de GoDaddy
+Cloudflare
+
+Ir a GoDaddy
+Editar servidor de nombres
+Y colocas los de Cloudflare
+Y le das guardar
+Damos concentimiento 
+
+Automaci HTTPS SÍ
+Alway Use HTTPS SÍ
+Brotli SÍ
+
+HTTPS IpV4 en rule inbound EC2
+
+El cliente debe ser el último en saber que se cayó
+pingdom
+
+Add newo
+Name of check
+Intervalo 1 minuto
+Por HTTPS
+Web HTTPS
+
+URL/IP Dominio
+Test from Nort America Europe
+Dow after: 3s
+alert after: instantly
+
+Save
+
+Cloudflare
+Click active
+DNS
+Add record
+Type A
+Cogemos la IP
+
+.text con dominio y subdomino
+con ssl, apache, cloudflare.
+
+Subdominio:
+Cloudflare
+DNS
+Records
+add record
+Type A
+Name: wwww
+IPv4: IPv4 Elástica
+
+
