@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Where To | JS</title>
+    <link rel="shortcut icon" href="logo-js.png" type="image/x-icon">
+
+    <script type="text/javascript">
+        function myFunction() {
+            document.getElementById("demo3").innerHTML = "Paragraph changed. (head)";
+        }
+    </script>
+</head>
+<body>
+    <h1>Where To | JavaScript</h1>
+
+    <h2>1. La etiqueta script</h2>
+    <p id="demo"></p>
+    <script type="text/javascript">
+        document.getElementById("demo").innerHTML = "My First JavaScript (body)";
+
+        function myFunction2() {
+            document.getElementById("demo4").innerHTML = "Paragraph changed. (body)";
+        }
+    </script>
+
+    <h2>2. Funciones y eventos JavaScript</h2>
+
+    <h2>3. JavaScript en el head</h2>
+    <p id="demo3">A paragraph</p>
+    <button type="button" onclick="myFunction()">Try it</button>
+
+    <h2>4. JavaScript en el body</h2>
+    <p id="demo4">A paragraph</p>
+    <button type="button" onclick="myFunction2()">Try it</button>
+
+    <h2>5. JavaScript externo</h2>
+    <p id="demo5">A paragraph</p>
+    <button type="button" onclick="myFunction3()">Try it</button>
+    <script src="myScript.js"></script>
+
+    <h2>6. Referencias externas</h2>
+    <ul>
+        <li><p>src="https://www.w3schools.com/js/myScript.js" URL COMPLETA</p></li>
+        <li><p>src="/js/myScript.js" RUTA DE ARCHIVO</p></li>
+        <li><p>src="myScript.js" NO PATH</p></li>
+    </ul>    
+    <script src="https://www.w3schools.com/js/myScript.js"></script>
+    <script src="/js/myScript.js"></script>
+    <script src="myScript.js"></script>
+
+</body>
+</html>

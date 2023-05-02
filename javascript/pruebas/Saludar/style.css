@@ -1,0 +1,13 @@
+/* Mi hoja de estilos CSS */
+* {
+    font-family: Verdana;
+}
+
+h2 {
+    border-left: 10px solid #0c4ae9;
+    padding: 10px;
+    background-color: rgb(244, 244, 244);
+    width: 250px;
+    text-align: center;
+    color: #323330;
+}

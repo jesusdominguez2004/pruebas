@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Statements | JS</title>
+    <link rel="shortcut icon" href="logo-js.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Statements | JavaScript</h1>
+
+    <h2>1. Declaraciones de JavaScript</h2>
+    <ul>
+        <li>Valores (Values)</li>
+        <li>Operadores (Operators)</li>
+        <li>Expresiones (Expressions)</li>
+        <li>Palabras clave (Keywords)</li>
+        <li>Comentarios (Comments)</li>
+    </ul>
+    <p id="demo1"></p>
+    <script type="text/javascript">
+        document.getElementById("demo1").innerHTML = "Hello Dolly.";
+    </script>
+    
+    <h2>2. Punto y comas ;</h2>
+    <script type="text/javascript">
+        let a, b, c;
+        a = 5;
+        b = 6;
+        c = a + b;
+
+        a = 5; b = 6; c = a + b;
+    </script>
+
+    <h2>3. Espacios en blanco</h2>
+    <script type="text/javascript">
+        let person1 = "Hege";
+        let person2="Hege";
+        let x = y + z;
+    </script>
+
+    <h2>4. Saltos de linea</h2>
+    <p id="demo4"></p>
+    <script type="text/javascript">
+        document.getElementById("demo4").innerHTML =
+        "Hello Dolly!";
+    </script>
+
+    <h2>5. Bloques de código</h2>
+    <p id="demo51"></p>
+    <p id="demo52"></p>
+    <button type="button" onclick="myFunction()">Try it</button>
+    <script type="text/javascript">
+        function myFunction() {
+            document.getElementById("demo51").innerHTML = "Hello Dolly!";
+            document.getElementById("demo52").innerHTML = "How are you?";
+        }
+    </script>
+
+    <!-- 6. JavaScript Keywords -->
+    <h2>6. JavaScript Keywords</h2>
+    <p>Las palabras claves no pueden usarse para nombrar variables, son reservadas:</p>
+    <ul>
+        <li>var</li>
+        <li>let</li>
+        <li>const</li>
+        <li>if</li>
+        <li>switch</li>
+        <li>for</li>
+        <li>function</li>
+        <li>return</li>
+        <li>try</li>
+    </ul>
+</body>
+</html>

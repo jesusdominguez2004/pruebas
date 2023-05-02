@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Introducion | JS</title>
+    <link rel="shortcut icon" href="logo-js.png" type="image/x-icon">
+</head>
+<body>
+    <h2>1. JavaScript puede cambiar contenido HTML</h2>
+    <p id="demo1">JavaScript puede cambiar contenido HTML</p>
+    <button type="button" onclick='document.getElementById("demo1").innerHTML = "Hello JavaScript! 1"'>Click Me! 1</button>
+    <button type="button" onclick="document.getElementById('demo1').innerHTML = 'Hello JavaScript! 2'">Click Me! 2</button>
+
+    <h2>2. JavaScript puede cambiar atributos HTML</h2>
+    <button type="button" onclick="document.getElementById('myImage').src = 'pic_bulbon.gif'">Encender</button>
+    <img id="myImage" src="pic_bulboff.gif" style="width: 100px;">
+    <button type="button" onclick="document.getElementById('myImage').src = 'pic_bulboff.gif'">Apagar</button>    
+
+    <h2>3. JavaScript puede cambiar estilos HTML (CSS)</h2>
+    <p id="demo2">JavaScript puede cambiar estilos HTML (CSS)</p>
+    <button type="button" onclick="document.getElementById('demo2').style.fontSize = '35px'">Click Me!</button>
+
+    <h2>4. JavaScript puede ocultar elementos HTML</h2>
+    <p id="demo3">JavaScript puede ocultar elementos HTML</p>
+    <button type="button" onclick="document.getElementById('demo3').style.display = 'none'">Click Me!</button>
+
+    <h2>5. JavaScript puede mostrar elementos HTML</h2>
+    <p id="demo4" style="display: none;">Hello JavaScript!</p>
+    <button type="button" onclick="document.getElementById('demo4').style.display = 'block'">Click Me!</button>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Output | JS</title>
+    <link rel="shortcut icon" href="logo-js.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Output | JavaScript</h1>
+
+    <h2>1. Visualización de JavaScript</h2>
+    <ul>
+        <li>Escribir en un elemento HTML, usando <strong>innerHTML.</strong></li>
+        <li>Escribir en la salida HTML, usando <strong>document.write().</strong></li>
+        <li>Escribir en un cuadro de alerta, usando <strong>window.alert().</strong></li>
+        <li>Escribir en la consola del navegador, usando <strong>console.log().</strong></li>
+    </ul>
+    
+    <h2>2. innerHTML</h2>
+    <p id="demo2"></p>
+    <script type="text/javascript">
+        document.getElementById("demo2").innerHTML = 5 + 6;
+    </script>
+
+    <h2>3. document.write()</h2>
+    <script type="text/javascript">
+        document.write(5 + 6);
+    </script>
+    <p>
+        Usar document.write() después de cargar el documento HTML 
+        <strong>eliminará todo el HTML existente.</strong>
+    </p>
+    <button type="button" onclick="document.write(5 + 6)">Try it</button>
+
+    <h2>4. window.alert()</h2>
+    <script type="text/javascript">
+        window.alert(5 + 6);
+        alert(5 + 6);
+    </script>
+
+    <h2>5. console.log()</h2>
+    <script type="text/javascript">
+        console.log(5 + 6);
+    </script>
+
+    <h2>6. JavaScript Print</h2>
+    <button onclick="window.print()">Print this page</button>
+</body>
+</html>
