@@ -1,0 +1,86 @@
+- - Bienestar a tu clase - -
+
+PASPE
+Servicios
+Becas
+Hablar en público
+
+Bienestar al frente del ICETEX
+Bloque 8
+
+- - Clase  - -
+
+Árboles binarios
+Árboles binarios de búsqueda
+
+Semana 15: mayo 15 - 21
+    Parcial 80% (3 ítems)
+    Investigación artículo 20% (Búsqueda en BD especializada)
+
+
+Ajedrez: Funciona con un árbol de tableros para tomar decisiones
+
+Todos los nodos tienen un padre, excepto el nodo raíz (root)
+
+Árbol vacío si no tiene nodos (no hay raíz)
+
+Recurisividad -> Los métodos de árboles son recursivos 
+
+Tipos nodos:
+    Hermanos -> Hijos de un mismo nodo padre
+    Externo -> Nodo que no tiene hijos (hojas, o como fin del árbol)
+    Interno -> Nodo que tiene hijos (ramas, uno o más hijos)
+
+Sentido del árbol -> Top to Bottom (De arriba a abajo)
+Trabajaremos con -> árboles binarios, con máximo dos hijos...
+
+Profundidad árbol (depth):
+    número de ancestros de un nodo p
+    si p es root, profundidad es 0
+    profundidad = profundidad padre p + 1
+
+Altura árbol (height):
+    mayor profundidad entre todos sus nodos
+    árbol vacío, altura 0
+
+
+Árbol AVL:
+    se organiza para que no se creen árboles degenerados
+
+Árboles B y B+:
+    antinodos
+    sistema de archivos
+
+Árboles de expresión -> Generalmente binarios
+
+Árboles binarios:
+    cada nodo, máximo dos hijos
+    cada hijo, es hijo izquierdo o derecho obligatoriamente
+    un hijo izquierdo, precede de un hijo derecho de un nodo
+    primer hijo, es el izquierdo
+    segundo hijo, es el derecho
+    subárbol izquierdo
+    subárbol derecho
+    nodos, tienen 0 o 2 hijos máximo
+
+Niveles árboles binarios:
+    cantidad de nodos a la misma profundidad
+    en el nivel 0, solo raíz
+    nivel 1 (hijos de raiz)
+    mayor cantidad nodos nivel 0 (1)
+    mayor cantidad nodos nivel 1 (2)
+    mayor cantidad nodos nivel 2 (4)
+    mayor cantidad nodos nivel 3 (8)
+    ...
+    fórmula 2^n nivel
+
+Árbol binario completo -> todos sus niveles tienen el máximo 2 ^ n nivel
+
+PREGUNTA: "un hijo izquierdo, precede de un hijo derecho de un nodo"
+
+Recorridos árboles:
+    visitar todos los nodos
+    tres tipos recorridos (es para árboles de expresiones)
+        preorden (visita raíz, luego cada subárbol (hijos), de izquierda a derecha)
+        enorden (visita subárbol izquierdo, luego visita raiz, luego visita subárbol derecho)
+        postorden (visita subárboles (hijos) de izquierda a derecha, por último el nodo root)

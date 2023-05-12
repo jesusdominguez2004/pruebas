@@ -1,0 +1,134 @@
+Buenas prácticas | Semana 14
+
+1) React
+2) CRUD con Firebase
+
+"The library for web and native interfaces"
+Aunque muchos lo ven como un Framework
+
+Funciones y métodos empaquetados que utilizamos 
+para facilitar nuestro trabajo.
+
+Framework Front-End (Angular, React, Vue, Ember, Qooxdoo, Dojo)
+Framework Back-End
+
+Mala práctica: Codigo que use Back-End en el Front-End
+y que no usa un Framework para ello.
+
+Front-End es lo visual, las interfaces
+Back-End es el funcinamientos
+
+Las APIS nos ayudan a conectar las Front-End con el Back-End y/o base de datos.
+
+
+Los formularios...
+Son vulnerables, SQL Inyección....
+Para eso usaremos Frameworks...
+Nos ofrecen seguridad...
+
+Framework más demandatos o populares
+Node.js BACK-END
+React.js FRONT-END
+Angular FRONT-END
+Django BACK-END
+
+https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/
+
+Lo ideal, es que tu Framework Front y Back esten el mismo lenguaje...
+
+Front-End React.js
+Back-End Express.js Nest.js (funciona con ambiente node.js)
+
+Hay lenguajes Front y Back
+
+PHP es del Back-End
+
+JavaScript es del Front-End
+
+Pero ahora se ha implementado JavaScript para el Back-En también
+
+Front-End JavaScript: React.js (que a su vez contiene next.js)
+Back-End JavaScript: Express.js Nest.js (funciona con ambiente node.js)
+
+Node.js es un AMBIENTE, NO FRAMEWORK
+
+- - - -
+
+webpack 2014
+is module bundler
+
+en ves de tener todos los módulos node...
+eso vuelve lenta la página...
+entonces webpack compula en un solo arhivo JS todo el código de esas "dependencias" que usamos en nuestras app webs
+
+Compilar 1000 archivos en un solo JS o CSS etc
+
+react is una carpeta con webpack
+
+cra react
+Creat React App
+
+babel.js
+es un compilador de javascript, está includido en los módulos de react
+
+compila código javascript para que sea compatible con cualquier navegador. Cool.
+
+Códigos viejos funcionar en navegadores nuevos
+Códigos nuevos funcionar en navegadores viejos
+
+CRA
+crea tu modelo de app 
+con nodo_modules básicos
+src
+public
+.gitignore
+etc
+
+webpack solo usa los import o las dependencias que uses.
+.gitignore, aquí se dice los archivos o carpetas que ignorará
+
+vite.js es como webpack
+pero es más rápido
+
+usaremos cra con webpack
+y también cra vite
+
+- - - - 
+
+Turbopack llegó
+Con Next.js
+700 veces más rápido con webpack
+
+Front-End:
+	React.js
+		CRA WEBPACK (antiguo)
+		CRA vite.js (mejor)
+		Next.js (MUCHO MEJOR)
+		Turbopack (MUCHO MEJOR)
+
+De MODULES WITH DEPENDENCIES
+
+A STATIC ASSETS
+
+- - - -
+
+Docker
+
+Un despliegue de una apliación
+Un contenedor de contenedores
+
+Usaremos Docker en vez de FileZilla
+Docker en el EC2
+
+SIGUIENTE CLASE:
+React
+Aplicación con React
+Docker
+Amazon
+EC2
+La llave .pem
+Configurado en Git con Github
+
+El despliegue de una apliación React cpn Docker en un EC2 de Amazon, sincronizada con un GitHub
+
+PROYECTO FINAL !!!!
