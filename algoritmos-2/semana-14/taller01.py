@@ -1,4 +1,11 @@
-# Árboles binarios | Semana 14 | Jesús Domínguez
+"""
+Taller 01 | Árboles binarios | Semana 14
+- Determinar los nodos hoja de un árbol
+- Determinar el número de nodos de un árbol
+- Determinar la altura de un árbol
+- Determinar el número de nodos en un nivel
+- Determinar si un árbol es completo
+"""
 
 class NodosBinarios:
     def __init__(self, dato, nodoIzquierdo = None, nodoDerecho = None) -> None:
@@ -71,10 +78,9 @@ class NodosBinarios:
             visitados.append(nodoActual)
         return visitados
 
-    # Métodos sobre los hijos
     def verHijosNodo(self):
         return self.hijoIzquierdo, self.hijoDerecho
-
+    
     def contarHijosNodo(self):
         cont = 0
         if self.hijoIzquierdo is not None:
@@ -82,17 +88,28 @@ class NodosBinarios:
         if self.hijoDerecho is not None:
             cont = cont + 1
         return cont
-
+    
     def setHijosNodo(self, hijoIzquierdo: "NodosBinarios", hijoDerecho: "NodosBinarios"):
         self.hijoIzquierdo = hijoIzquierdo
         self.hijoDerecho = hijoDerecho
+
+    def verPadreNodo(self, nodoRaiz: "NodosBinarios"):
+        if nodoRaiz is None or nodoRaiz == self:
+            return None
         
-    # 1. Ver y contar hojas árbol
+        if nodoRaiz.hijoIzquierdo == self or nodoRaiz.hijoDerecho == self:
+            return nodoRaiz
+        
+        hijoIzquierdo = self.verPadreNodo(nodoRaiz.hijoIzquierdo)
+        hijoDerecho = self.verPadreNodo(nodoRaiz.hijoDerecho)
+        return hijoIzquierdo or hijoDerecho
+
+    # 1. Determinar los nodos hoja de un árbol
     def verHojasArbol(self):
         listaHojas = []
         self.__hojasArbolRecursivo(self, listaHojas)
         return listaHojas
-
+    
     def __hojasArbolRecursivo(self, nodo: "NodosBinarios",  listaHojas: list):
         if nodo is not None:
             if nodo.esHoja():
@@ -102,8 +119,8 @@ class NodosBinarios:
     
     def contarHojasArbol(self):
         return len(self.verHojasArbol())
-
-    # 2. Ver y contar nodos árbol
+    
+    # 2. Determinar el número de nodos de un árbol
     def verNodosArbol(self):
         listaNodos = []
         self.__nodosArbolRecursivo(self, listaNodos)
@@ -117,8 +134,8 @@ class NodosBinarios:
     
     def contarNodosArbol(self):
         return len(self.verNodosArbol())
-
-    # 3. Altura árbol
+    
+    # 3. Determinar la altura de un árbol
     def alturaArbol(self, nodoRaiz: "NodosBinarios"):
         listaNodos = nodoRaiz.verNodosArbol()
         mayor = 0
@@ -128,8 +145,7 @@ class NodosBinarios:
             if profundidad > mayor: 
                 mayor = profundidad
         return mayor
-
-    # 4. Profundidad nodo
+    
     def profundidadNodo(self, nodoRaiz):
         numeroAncestros = 0
         numeroAncestros = self.__profundidadNodoRecursivo(self, nodoRaiz, numeroAncestros)
@@ -143,19 +159,17 @@ class NodosBinarios:
                 return padre.__profundidadNodoRecursivo(padre, nodoRaiz, numeroAncestros)
         return numeroAncestros
     
-    # 5. Ver y contar nodos en nivel
+    # 4. Determinar el número de nodos en un nivel
     def verNodosNivel(self, nivel: int):
         listaNodos = []
         self.__verNodosNivelRecursivo(self, nivel, 0, listaNodos)
         return listaNodos
-
+    
     def __verNodosNivelRecursivo(self, arbol: "NodosBinarios", nivelActual: int, nivelActualActual: int, listaNodos: list):
         if arbol is None:
             return
-        
         if nivelActual == nivelActualActual:
             listaNodos.append(arbol)
-        
         self.__verNodosNivelRecursivo(arbol.hijoIzquierdo, nivelActual, nivelActualActual + 1, listaNodos)
         self.__verNodosNivelRecursivo(arbol.hijoDerecho, nivelActual, nivelActualActual + 1, listaNodos)
 
@@ -165,23 +179,7 @@ class NodosBinarios:
     def contarNivelesArbol(self, nodoRaiz): 
         return self.alturaArbol(nodoRaiz)
     
-    """
-    Colocar return en todo si es posibles, hasta las funciones privadas
-    Siempre complementar con una funcion privada especial, se puede reutilizar
-    Orar mucho
-
-    Ver altura (profundidad mayor) desde un nodo != nodoRaiz
-    ver nodos en nivel
-
-    Mutable (listas, no necesitan un return en las recursiones)
-    Inmutable (enteros, necesitan un return en las recursiones)
-
-    EMPEZAR ALGORITMOS EN SELF, Y NO COLOCAR ARGUMENTO NODORAIZ
-    ASÍ ES MÁS RECURSIVO, CADA NODO ES UN SUBÁRBOL
-
-    Árbol completo, mejorar con una función recursiva
-    """
-    # 6. Árbol completo
+    # 5. Determinar si un árbol es completo
     def esArbolCompleto(self):
         nivelActual = 0
         nodosMaximos = 1
@@ -194,19 +192,45 @@ class NodosBinarios:
             nivelActual = nivelActual + 1
             nodosMaximos = nodosMaximos * 2
         return True
-
-    # Extra
+    
     def esArbolCasiCompleto(self):
         return not self.esArbolCompleto()
-    
-    def verPadreNodo(self, nodoRaiz: "NodosBinarios"):
-        if nodoRaiz is None or nodoRaiz == self:
-            return None
-        
-        if nodoRaiz.hijoIzquierdo == self or nodoRaiz.hijoDerecho == self:
-            return nodoRaiz
-        
-        hijoIzquierdo = self.verPadreNodo(nodoRaiz.hijoIzquierdo)
-        hijoDerecho = self.verPadreNodo(nodoRaiz.hijoDerecho)
-        return hijoIzquierdo or hijoDerecho
-    
+
+
+# - - - - Prueba - - - -
+nodoRaiz = NodosBinarios("A")
+nodo01 = NodosBinarios("B")
+nodo02 = NodosBinarios("C")
+nodo03 = NodosBinarios("D")
+nodo04 = NodosBinarios("E")
+nodo05 = NodosBinarios("F")
+nodo06 = NodosBinarios("G")
+nodo07 = NodosBinarios("H")
+nodo08 = NodosBinarios("I")
+
+nodoRaiz.setHijosNodo(nodo01, nodo02)
+nodo01.setHijosNodo(nodo03, nodo04)
+nodo02.setHijosNodo(nodo05, nodo06)
+nodo03.setHijosNodo(nodo07, nodo08)
+print(f"Árbol:\n{nodoRaiz.verArbol()}")
+
+# 1. Hojas árbol
+print(f"Ver hojas: {nodoRaiz.verHojasArbol()}")
+print(f"Contar hojas: {nodoRaiz.contarHojasArbol()}\n")
+
+# 2. Número de nodos
+print(f"Ver nodos: {nodoRaiz.verNodosArbol()}")
+print(f"Cantidad nodos: {nodoRaiz.contarNodosArbol()}\n")
+
+# 3. Altura árbol
+print(f"Altura árbol: {nodo05.alturaArbol(nodoRaiz)}\n")
+
+# 4. Números nodos de un nivel
+print(f"Niveles árbol: {nodo05.contarNivelesArbol(nodoRaiz)}")
+print(f"Contar nodos nivel 0: {nodoRaiz.contarNodosNivel(0)}")
+print(f"Contar nodos nivel 1: {nodoRaiz.contarNodosNivel(1)}")
+print(f"Contar nodos nivel 2: {nodoRaiz.contarNodosNivel(2)}")
+print(f"Contar nodos nivel 3: {nodoRaiz.contarNodosNivel(3)}\n")
+
+# 5. Árbol completo
+print(f"¿Es árbol completo {nodoRaiz}?: {nodoRaiz.esArbolCompleto()}")

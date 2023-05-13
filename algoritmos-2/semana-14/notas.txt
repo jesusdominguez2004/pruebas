@@ -1,0 +1,16 @@
+Notas semana 14
+
+Árbol binarios de búsquedas:
+    no son equilibrados
+    se distribuyen los datos conforme el orden de incersión
+    izquierda menores que nodo anterior
+    derecha mayores que nodo anterior
+
+
+Pendientes:
+    hermanos, nodos
+    abuelos
+    nietos
+    primos
+    sobrinos
+    etc
