@@ -1,10 +1,10 @@
 """
 Taller 01 | Árboles binarios | Semana 14
-- Determinar los nodos hoja de un árbol
-- Determinar el número de nodos de un árbol
-- Determinar la altura de un árbol
-- Determinar el número de nodos en un nivel
-- Determinar si un árbol es completo
+- Determinar los nodos hoja de un árbol (línea 108)
+- Determinar el número de nodos de un árbol (línea 135)
+- Determinar la altura de un árbol (línea 139)
+- Determinar el número de nodos en un nivel (línea 176)
+- Determinar si un árbol es completo (línea 183)
 """
 
 class NodosBinarios:
