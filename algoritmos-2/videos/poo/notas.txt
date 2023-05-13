@@ -1,0 +1,17 @@
+Funciones
+Parámetros
+Llamar funciones
+tipo valor esperado
+tipo valor regresado
+
+Return
+Alcance funciones
+
+Clases
+Constructor
+Atributos
+Comportamientos
+Método _ _ str _ _
+Herencia
+Polimorfismo
+
