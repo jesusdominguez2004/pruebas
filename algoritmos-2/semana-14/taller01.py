@@ -1,5 +1,6 @@
 """
 Taller 01 | Árboles binarios | Semana 14
+
 - Determinar los nodos hoja de un árbol (línea 108)
 - Determinar el número de nodos de un árbol (línea 135)
 - Determinar la altura de un árbol (línea 139)
