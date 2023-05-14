@@ -1,5 +1,7 @@
 # Árbol binario de búsqueda | Semana 14 | Jesús Domínguez
 
+from random import randint
+
 class NodosBinarios:
     def __init__(self, dato, nodoIzquierdo = None, nodoDerecho = None) -> None:
         self.valorNodo = dato
@@ -86,6 +88,34 @@ class NodosBinarios:
     def setHijosNodo(self, hijoIzquierdo: "NodosBinarios", hijoDerecho: "NodosBinarios"):
         self.hijoIzquierdo = hijoIzquierdo
         self.hijoDerecho = hijoDerecho
+
+    def tieneUnHijo(self):
+        if self.contarHijosNodo() == 1:
+            return True
+        
+    def tieneDosHijos(self):
+        if self.contarHijosNodo() == 2:
+            return True
+
+    def tieneHijos(self):
+        if self.contarHijosNodo != 0:
+            return True
+
+    def soloHijoIzquierdo(self):
+        if self.tieneUnHijo():
+            if self.hijoIzquierdo is not None and self.hijoDerecho is None:
+                return True
+            else:
+                return False
+        return None
+    
+    def soloHijoDerecho(self):
+        if self.tieneUnHijo():
+            if self.hijoIzquierdo is None and self.hijoDerecho is not None:
+                return True
+            else:
+                return False
+        return None
 
     def verPadreNodo(self, nodoRaiz: "NodosBinarios"):
         if nodoRaiz is None or nodoRaiz == self:
@@ -184,6 +214,44 @@ class NodosBinarios:
     
     def esArbolCasiCompleto(self):
         return not self.esArbolCompleto()
+
+    def nodosEnMaximaProfundiad(self, nodoRaiz: "NodosBinarios"):
+        alturaArbol = self.alturaArbol(nodoRaiz)
+        nodosArbol = nodoRaiz.verNodosArbol()
+        listaMaximos = []
+        nodo: NodosBinarios
+        for nodo in nodosArbol:
+            if nodo.profundidadNodo(nodoRaiz) == alturaArbol:
+                listaMaximos.append(nodo)
+        return listaMaximos
+    
+    def arbolParcialmenteOrdenado(self, listaElementos: list):
+        if len(listaElementos) != 0:
+            root = self
+            for elemento in listaElementos:
+                root = self.__insertarParciamenteOrdenadoRecursivo(elemento, root)
+            return root
+        return None
+    
+    def __insertarParciamenteOrdenadoRecursivo(self, elemento, arbol: "NodosBinarios"):
+        if arbol is None:
+            return NodosBinarios(elemento)
+        if elemento <= arbol.valorNodo:
+            arbol.hijoIzquierdo = self.__insertarParciamenteOrdenadoRecursivo(elemento, arbol.hijoIzquierdo)
+        else:
+            arbol.hijoDerecho = self.__insertarParciamenteOrdenadoRecursivo(elemento, arbol.hijoDerecho)
+        return arbol
+        
+    def esArbolDegenerado(self):
+        if not self.esHoja():
+            listaNodos = self.verNodosArbol()
+            nodo: NodosBinarios
+            for nodo in listaNodos:
+                if nodo.tieneDosHijos():
+                    return False
+            return True
+        return None
+
 
 
 class ArbolesBinariosBusqueda:
@@ -328,3 +396,253 @@ class ArbolesBinariosBusqueda:
             elif nodoTemporal.hijoDerecho == nodoIzquierdo:
                 nodoTemporal.hijoDerecho = nodoIzquierdo.hijoIzquierdo
             return True
+    
+    # Métodos propios
+    def verPadreNodo(self, elemento):
+        if not self.estaVacio():
+            nodoTemporal = NodosBinarios(elemento)
+            return nodoTemporal.verPadreNodo(self.nodoRaiz)
+        return None
+    
+    def alturaArbol(self):
+        if not self.estaVacio():
+            return self.nodoRaiz.alturaArbol(self.nodoRaiz)
+        return None
+
+    def nodosEnMaximaProfundiad(self):
+        if not self.estaVacio():
+            alturaArbol = self.alturaArbol()
+            nodosArbol = self.nodoRaiz.verNodosArbol()
+            listaMaximos = []
+            nodo: NodosBinarios
+            for nodo in nodosArbol:
+                if nodo.profundidadNodo(self.nodoRaiz) == alturaArbol:
+                    listaMaximos.append(nodo)
+            return listaMaximos
+        return None
+    
+    def verNodosMayoresQue(self, elemento):
+        if not self.estaVacio():
+            nodosMayores = []
+            self.__verNodosMayoresQueRecursivo(self.nodoRaiz, elemento, nodosMayores)
+            return nodosMayores
+        return None
+
+    def __verNodosMayoresQueRecursivo(self, arbol: NodosBinarios, elemento, nodosMayores: list):
+        if arbol is None:
+            return None
+        if arbol.valorNodo > elemento:
+            nodosMayores.append(arbol)
+            self.__verNodosMayoresQueRecursivo(arbol.hijoIzquierdo, elemento, nodosMayores)
+            self.__verNodosMayoresQueRecursivo(arbol.hijoDerecho, elemento, nodosMayores)
+        else:
+            self.__verNodosMayoresQueRecursivo(arbol.hijoDerecho, elemento, nodosMayores)
+
+    def contarNodosMayoresQue(self, elemento):
+        if not self.estaVacio():
+            return len(self.verNodosMayoresQue(elemento))
+        return None
+
+    def nodoMayorMasCercanoA(self, elemento):
+        if not self.estaVacio():
+            if len(self.verNodosMayoresQue(elemento)) > 0:
+                return min(self.verNodosMayoresQue(elemento), key=lambda nodoBinario: nodoBinario.valorNodo)
+        return None
+    
+    def verNodosMenoresQue(self, elemento):
+        if not self.estaVacio():
+            nodosMenores = []
+            self.__verNodosMenoresQueRecursivo(self.nodoRaiz, elemento, nodosMenores)
+            return nodosMenores
+        return None
+
+    def __verNodosMenoresQueRecursivo(self, arbol: NodosBinarios, elemento, nodosMenores: list):
+        if arbol is None:
+            return None
+        if arbol.valorNodo < elemento:
+            nodosMenores.append(arbol)
+            self.__verNodosMenoresQueRecursivo(arbol.hijoIzquierdo, elemento, nodosMenores)
+            self.__verNodosMenoresQueRecursivo(arbol.hijoDerecho, elemento, nodosMenores)
+        else:
+            self.__verNodosMenoresQueRecursivo(arbol.hijoIzquierdo, elemento, nodosMenores)
+
+    def contarNodosMenoresQue(self, elemento):
+        if not self.estaVacio():
+            return len(self.verNodosMenoresQue(elemento))
+        return None
+    
+    def nodoMenorMasCercanoA(self, elemento):
+        if not self.estaVacio():
+            if len(self.verNodosMenoresQue(elemento)) > 0:
+                return max(self.verNodosMenoresQue(elemento), key=lambda nodoBinario: nodoBinario.valorNodo)
+        return None
+
+    def menorNodo(self):
+        if not self.estaVacio():
+            menorNodo = self.nodoRaiz
+            return self.__menorNodoRecursivo(self.nodoRaiz, menorNodo)
+        return None
+
+    def __menorNodoRecursivo(self, arbol: NodosBinarios, menorNodo: NodosBinarios):
+        if arbol is None:
+            return None
+        if arbol.valorNodo < menorNodo.valorNodo:
+            menorNodo = arbol
+        menorNodoIzq: NodosBinarios = self.__menorNodoRecursivo(arbol.hijoIzquierdo, menorNodo)
+        if menorNodoIzq is not None and menorNodoIzq.valorNodo < menorNodo.valorNodo:
+            menorNodo = menorNodoIzq
+        menorNodoDer: NodosBinarios = self.__menorNodoRecursivo(arbol.hijoDerecho, menorNodo)
+        if menorNodoDer is not None and menorNodoDer.valorNodo < menorNodo.valorNodo:
+            menorNodo = menorNodoDer
+        return menorNodo
+
+    def mayorNodo(self):
+        if not self.estaVacio():
+            mayorNodo = self.nodoRaiz
+            return self.__mayorNodoRecursivo(self.nodoRaiz, mayorNodo)
+        return None
+
+    def __mayorNodoRecursivo(self, arbol: NodosBinarios, mayorNodo: NodosBinarios):
+        if arbol is None:
+            return mayorNodo
+        if arbol.valorNodo > mayorNodo.valorNodo:
+            mayorNodo = arbol
+        mayorNodoIzq: NodosBinarios = self.__mayorNodoRecursivo(arbol.hijoIzquierdo, mayorNodo)
+        mayorNodoDer: NodosBinarios = self.__mayorNodoRecursivo(arbol.hijoDerecho, mayorNodo)
+        if mayorNodoIzq.valorNodo > mayorNodo.valorNodo:
+            mayorNodo = mayorNodoIzq
+        if mayorNodoDer.valorNodo > mayorNodo.valorNodo:
+            mayorNodo = mayorNodoDer
+        return mayorNodo
+
+    def factorEquilibrio(self):
+        if not self.estaVacio():
+            if not self.nodoRaiz.esHoja():
+                subArbolIzquierdo = self.nodoRaiz.hijoIzquierdo
+                subArbolDerecho = self.nodoRaiz.hijoDerecho
+                if subArbolIzquierdo is not None and subArbolDerecho is not None:
+                    alturaIzquierda = subArbolIzquierdo.alturaArbol(subArbolIzquierdo)
+                    alturaDerecha = subArbolDerecho.alturaArbol(subArbolDerecho)
+                    return alturaIzquierda - alturaDerecha
+        return None
+    
+    def factorEquilibrioNodo(self, elemento):
+        if not self.estaVacio():
+            if not self.nodoRaiz.esHoja():
+                if self.buscarNodo(elemento):
+                    nodo = self.buscarNodo(elemento)
+                    subArbolIzquierdo = nodo.hijoIzquierdo
+                    subArbolDerecho = nodo.hijoDerecho
+                    if subArbolIzquierdo is not None and subArbolDerecho is not None:
+                        alturaIzquierda = subArbolIzquierdo.alturaArbol(subArbolIzquierdo)
+                        alturaDerecha = subArbolDerecho.alturaArbol(subArbolDerecho)
+                        return alturaIzquierda - alturaDerecha
+        return None
+
+    def verFactoresEquilibrio(self):
+        if not self.estaVacio():
+            if not self.nodoRaiz.esHoja():
+                listaFE = []
+                listaNodos = self.nodoRaiz.verNodosArbol()
+                nodo: NodosBinarios
+                for nodo in listaNodos:
+                    factorEquilibrio = self.factorEquilibrioNodo(nodo.valorNodo)
+                    if factorEquilibrio is not None:
+                        listaFE.append(factorEquilibrio)
+                return listaFE
+        return None
+    
+    def contarFactoresEquilibrio(self):
+        if not self.estaVacio():
+            if not self.nodoRaiz.esHoja():
+                return len(self.verFactoresEquilibrio())
+        return None
+
+    def esArbolAVL(self):
+        if not self.estaVacio():
+            if not self.nodoRaiz.esHoja():
+                listaFE = self.verFactoresEquilibrio()
+                if len(listaFE) != 0:
+                    for factor in listaFE:
+                        if factor < -1 or factor > 1:
+                            return False
+                    return True
+        return None
+
+    def esArbolDegenerado(self):
+        if not self.estaVacio():
+            if not self.nodoRaiz.esHoja():
+                return self.nodoRaiz.esArbolDegenerado()
+        return None
+    
+    def insertarNodosListaElementos(self, listaElementos: list):
+        if len(listaElementos) != 0:
+            if self.estaVacio():
+                self.nodoRaiz = NodosBinarios(listaElementos[0])
+                listaElementos.pop(0)
+            for elemento in listaElementos:
+                self.insertarNodo(elemento)
+        return None
+
+    def insertarNodosAleatorios(self, cantidad: int):
+        if self.estaVacio():
+            self.nodoRaiz = NodosBinarios(randint(-100, 100))
+            for _ in range(cantidad - 1):
+                self.insertarNodo(randint(-100, 100))
+        else:
+            for _ in range(cantidad):
+                self.insertarNodo(randint(-100, 100))
+
+    def insertarNodosListaFraccionarios(self, listaFraccionarios: list):
+        if len(listaFraccionarios) != 0:
+            if self.estaVacio():
+                self.nodoRaiz = NodosBinarios(listaFraccionarios[0])
+                listaFraccionarios.pop(0)
+            for fraccion in listaFraccionarios:
+                self.insertarNodo(fraccion)
+        return None
+
+
+
+class OperadoraAB:
+    def __init__(self, arbolBinario1: NodosBinarios, arbolBinario2: NodosBinarios) -> None:
+        self.arbolBinario1 = arbolBinario1
+        self.arbolBinario2 = arbolBinario2
+
+    def sonIguales(self) -> bool:
+        arbol1 = self.arbolBinario1
+        arbol2 = self.arbolBinario2
+        return self.__sonIgualesRecursivo(arbol1, arbol2)
+        
+    def __sonIgualesRecursivo(self, arbol1: NodosBinarios, arbol2: NodosBinarios):
+        if arbol1 is None and arbol2 is None:
+            return True
+        elif arbol1 is None or arbol2 is None:
+            return False
+        elif arbol1.valorNodo != arbol2.valorNodo:
+            return False
+        else:
+            return self.__sonIgualesRecursivo(arbol1.hijoIzquierdo, arbol2.hijoIzquierdo) and \
+                self.__sonIgualesRecursivo(arbol1.hijoDerecho, arbol2.hijoDerecho)
+
+class OperadoraABB:
+    def __init__(self, arbolBB1: ArbolesBinariosBusqueda, arbolBB2: ArbolesBinariosBusqueda) -> None:
+        self.arbolBB1 = arbolBB1
+        self.arbolBB2 = arbolBB2
+
+    def sonIguales(self) -> bool:
+        arbol1 = self.arbolBB1.nodoRaiz
+        arbol2 = self.arbolBB2.nodoRaiz
+        return self.__sonIgualesRecursivo(arbol1, arbol2)
+        
+    def __sonIgualesRecursivo(self, arbol1: NodosBinarios, arbol2: NodosBinarios):
+        if arbol1 is None and arbol2 is None:
+            return True
+        elif arbol1 is None or arbol2 is None:
+            return False
+        elif arbol1.valorNodo != arbol2.valorNodo:
+            return False
+        else:
+            return self.__sonIgualesRecursivo(arbol1.hijoIzquierdo, arbol2.hijoIzquierdo) and \
+                self.__sonIgualesRecursivo(arbol1.hijoDerecho, arbol2.hijoDerecho)
+        
