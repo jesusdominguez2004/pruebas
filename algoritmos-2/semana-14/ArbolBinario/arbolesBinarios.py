@@ -199,13 +199,15 @@ class NodosBinarios:
         return not self.esArbolCompleto()
     
     def verPadreNodo(self, nodoRaiz: "NodosBinarios"):
-        if nodoRaiz is None or nodoRaiz == self:
+        if nodoRaiz is None or nodoRaiz is self:
             return None
-        
-        if nodoRaiz.hijoIzquierdo == self or nodoRaiz.hijoDerecho == self:
+        if (nodoRaiz.hijoIzquierdo is self or nodoRaiz.hijoDerecho is self) and nodoRaiz.valorNodo != self.valorNodo:
             return nodoRaiz
-        
         hijoIzquierdo = self.verPadreNodo(nodoRaiz.hijoIzquierdo)
         hijoDerecho = self.verPadreNodo(nodoRaiz.hijoDerecho)
-        return hijoIzquierdo or hijoDerecho
+
+        if hijoIzquierdo is not None:
+            return hijoIzquierdo
+        else:
+            return hijoDerecho
     
