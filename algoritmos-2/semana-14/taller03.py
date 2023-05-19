@@ -13,6 +13,41 @@ Para ABB:
 
 from random import randint
 
+class Fracciones:
+    def __init__(self) -> None:
+        self.numerador = 0
+        self.denominador = 0
+    
+    def __str__(self) -> str:
+        return f"{self.numerador / self.denominador}"
+    
+    def __repr__(self) -> str:
+        return self.__str__()
+    
+    
+    def setNumerador(self, x):
+        self.numerador = x
+    
+    def getNumerador(self):
+        return self.numerador
+    
+    def setDenominador(self, x):
+        self.denominador = x
+    
+    def getDenominador(self):
+        return self.denominador
+    
+    def setFraccion(self, numerador, denominador):
+        self.setNumerador(numerador)
+        self.setDenominador(denominador)
+
+    def __lt__(self, otra_fraccion):
+        denominador_comun = self.denominador * otra_fraccion.denominador
+        numerador_self = self.numerador * otra_fraccion.denominador
+        numerador_otra = otra_fraccion.numerador * self.denominador
+        return numerador_self < numerador_otra
+
+
 class NodosBinarios:
     def __init__(self, dato, nodoIzquierdo = None, nodoDerecho = None) -> None:
         self.valorNodo = dato
@@ -264,7 +299,6 @@ class NodosBinarios:
                     return False
             return True
         return None
-
 
 
 class ArbolesBinariosBusqueda:
@@ -610,15 +644,33 @@ class ArbolesBinariosBusqueda:
                 self.insertarNodo(randint(-100, 100))
 
     # 5. Implementar un ABB con una lista de elementos de tipo fraccionario
+    def insertarFraccion(self, fraccion: Fracciones):
+        if self.estaVacio():
+            self.nodoRaiz = NodosBinarios(fraccion)
+        self.__insertarFraccionRecursivo(self.nodoRaiz, fraccion)
+        
+    def __insertarFraccionRecursivo(self, arbol: NodosBinarios, fraccion: Fracciones):
+        if fraccion == arbol.valorNodo:
+            return
+        if fraccion < arbol.valorNodo:
+            if arbol.hijoIzquierdo is None:
+                arbol.hijoIzquierdo = NodosBinarios(fraccion)
+            else:
+                self.__insertarFraccionRecursivo(arbol.hijoIzquierdo, fraccion)
+        else:
+            if arbol.hijoDerecho is None:
+                arbol.hijoDerecho = NodosBinarios(fraccion)
+            else:
+                self.__insertarFraccionRecursivo(arbol.hijoDerecho, fraccion)
+
     def insertarNodosListaFraccionarios(self, listaFraccionarios: list):
         if len(listaFraccionarios) != 0:
             if self.estaVacio():
                 self.nodoRaiz = NodosBinarios(listaFraccionarios[0])
                 listaFraccionarios.pop(0)
             for fraccion in listaFraccionarios:
-                self.insertarNodo(fraccion)
+                self.insertarFraccion(fraccion)
         return None
-
 
 
 class OperadoraAB:
@@ -698,7 +750,19 @@ abb02.insertarNodosListaElementos(listaElementos)
 print(f"ABB 02:\n {abb02}")
 
 # 5. Implementar un ABB con una lista de elementos de tipo fraccionario
-listaFraccionarios = [1/2, 3/4, 1/6, 4/5, 3/2, 1/3, 7/4]
+f1 = Fracciones()
+f1.setFraccion(1, 2)
+f2 = Fracciones()
+f2.setFraccion(3, 4)
+f3 = Fracciones()
+f3.setFraccion(1, 6)
+f4 = Fracciones()
+f4.setFraccion(4, 5)
+f5 = Fracciones()
+f5.setFraccion(3, 2)
+
+listaFraccionarios = [f1, f2, f3, f4, f5]
 abb03 = ArbolesBinariosBusqueda()
 abb03.insertarNodosListaFraccionarios(listaFraccionarios)
 print(f"ABB 03:\n{abb03}")
+
